@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "tag": "minecraft:music_discs"
+    },
+    "G": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "pattern": [
+    " G ",
+    "GDG",
+    " G "
+  ],
+  "result": {
+    "item": "musicbox:custom_record"
+  },
+  "show_notification": true
+}

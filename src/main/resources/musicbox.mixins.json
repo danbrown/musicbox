@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.dannbrown.musicbox.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "musicbox.mixins.refmap.json",
+  "mixins": [
+    "BlockEntityMixin",
+    "JukeboxBlockEntityMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,5 @@
+// 1.20.1	2024-06-14T17:32:13.648127	Registrate Provider for musicbox [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+f81dbcf7d72d7a458f7f51044b15dfaf1175ce85 assets/musicbox/lang/en_ud.json
+4e19e14ee2e18394ec2698d7f2b2df29a3e3cda0 assets/musicbox/lang/en_us.json
+095fd6b212ea934570c9ded27b0877880ca22a89 assets/musicbox/models/item/custom_record.json
+bf36b25f2f8f6e0b4d1be354cf30a6e79eb2e61d data/minecraft/tags/items/music_discs.json
