@@ -5,6 +5,9 @@
     "D": {
       "tag": "minecraft:music_discs"
     },
+    "F": {
+      "item": "minecraft:feather"
+    },
     "G": {
       "item": "minecraft:redstone_block"
     }
@@ -12,7 +15,7 @@
   "pattern": [
     " G ",
     "GDG",
-    " G "
+    " GF"
   ],
   "result": {
     "item": "musicbox:custom_record"

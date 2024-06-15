@@ -2,7 +2,7 @@
   "placeholder_sound": {
     "sounds": [
       {
-        "name": "discover:placeholder_sound",
+        "name": "musicbox:placeholder_sound",
         "stream": true
       }
     ]

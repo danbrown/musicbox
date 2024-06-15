@@ -8,6 +8,7 @@ import com.dannbrown.musicbox.main.YoutubeUtils
 import net.minecraft.network.FriendlyByteBuf
 import net.minecraft.network.chat.Component
 import net.minecraft.sounds.SoundEvents
+import net.minecraft.sounds.SoundSource
 import net.minecraftforge.network.NetworkEvent
 import java.net.URL
 
@@ -16,6 +17,7 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
   private var discDuration: Int = 0
   private var discName: String? = null
   private var discRadius: Int = 0
+  private var locked: Boolean = false
 
   constructor()
   constructor (buffer: FriendlyByteBuf) : this() {
@@ -23,13 +25,15 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
     discDuration = buffer.readInt()
     discName = buffer.readByteArray().toString(Charsets.UTF_8)
     discRadius = buffer.readLong().toInt()
+    locked = buffer.readBoolean()
   }
 
-  constructor (urlName: String, discLength: Int, discName: String, discRadius: Int) : this() {
+  constructor (urlName: String, discLength: Int, discName: String, discRadius: Int, locked: Boolean) : this() {
     this.discUrl = urlName
     this.discDuration = discLength
     this.discName = discName
     this.discRadius = discRadius
+    this.locked = locked
   }
 
   override fun write(buffer: FriendlyByteBuf) {
@@ -37,6 +41,7 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
     buffer.writeInt(discDuration)
     buffer.writeByteArray(discName!!.toByteArray())
     buffer.writeLong(discRadius.toLong())
+    buffer.writeBoolean(locked)
   }
 
   override fun handle(context: NetworkEvent.Context): Boolean {
@@ -83,11 +88,12 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
           return@enqueueWork
         }
 
-        player.playSound(SoundEvents.VILLAGER_WORK_CARTOGRAPHER, 1.0f, 1.0f)
+        player.level().playSound(null, player.blockPosition(), SoundEvents.VILLAGER_WORK_CARTOGRAPHER, SoundSource.PLAYERS, 1.0f, 1.0f)
         stackInHand.orCreateTag.putString(URLDiscItem.URL_TAG_KEY, YoutubeUtils.removeUrlParameters(discUrl))
         stackInHand.orCreateTag.putInt(URLDiscItem.DURATION_TAG_KEY, durationToWrite)
         stackInHand.orCreateTag.putString(URLDiscItem.NAME_TAG_KEY, discName)
         stackInHand.orCreateTag.putInt(URLDiscItem.RADIUS_TAG_KEY, discRadius)
+        stackInHand.orCreateTag.putBoolean(URLDiscItem.LOCKED_TAG_KEY, locked)
         if(!discName.isNullOrEmpty()){
           stackInHand.setHoverName(Component.literal(discName))
         }

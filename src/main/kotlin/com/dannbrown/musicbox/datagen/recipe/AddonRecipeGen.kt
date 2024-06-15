@@ -5,6 +5,7 @@ import com.dannbrown.databoxlib.registry.datagen.DataboxRecipeProvider
 import com.dannbrown.musicbox.MusicBoxItems
 import net.minecraft.data.DataGenerator
 import net.minecraft.tags.ItemTags
+import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.Blocks
 
 class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator.packOutput, MusicBoxModule.MOD_ID) {
@@ -14,9 +15,10 @@ class AddonRecipeGen(generator: DataGenerator) : DataboxRecipeProvider(generator
         c
           .pattern(" G ")
           .pattern("GDG")
-          .pattern(" G ")
+          .pattern(" GF")
           .define('G', Blocks.REDSTONE_BLOCK)
           .define('D', ItemTags.MUSIC_DISCS)
+          .define('F', Items.FEATHER)
       }
   }
 }

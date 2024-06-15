@@ -42,11 +42,11 @@ class MusicBoxModule {
       MusicBoxItems.register(modBus)
       MusicBoxScreens.register(modBus)
       REGISTRATE.registerEventListeners(modBus)
+      forgeEventBus.addListener(EventPriority.HIGH) { event: RegisterCommandsEvent -> onRegisterCommands(event) }
       modBus.addListener(::commonSetup)
       modBus.addListener(EventPriority.LOWEST) { event: GatherDataEvent ->
         AddonDatagen.gatherData(event)
       }
-      modBus.addListener(::onRegisterCommands)
     }
 
     fun registerClient(modBus: IEventBus, forgeEventBus: IEventBus) {
@@ -65,14 +65,13 @@ class MusicBoxModule {
 
     // RUN SETUP
     private fun commonSetup(event: FMLCommonSetupEvent) {
-      event.enqueueWork {
-        MusicBoxNetworking.register()
-      }
+      MusicBoxNetworking.register()
     }
 
     // Run Client Setup
     private fun clientSetup(event: FMLClientSetupEvent) {
       MenuScreens.register(MusicBoxScreens.MUSIC_DISC_MENU.get()) { menu, inv, c -> MusicDiscScreen(menu, inv) }
+      MusicBoxItems.addDiscPredicate(event)
     }
 
     fun onRegisterCommands(event: RegisterCommandsEvent) {
