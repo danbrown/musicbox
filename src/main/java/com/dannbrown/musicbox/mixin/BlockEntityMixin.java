@@ -17,7 +17,4 @@ public class BlockEntityMixin {
   @Final
   @Shadow
   protected BlockPos worldPosition;
-  @Inject(method = "load", at = @At("TAIL"))
-  public void discover$load(CallbackInfo ci) {
-  }
 }
