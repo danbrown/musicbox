@@ -1,6 +1,6 @@
 package com.dannbrown.musicbox
 
-import com.dannbrown.databoxlib.registry.DataboxRegistrate
+import com.dannbrown.deltaboxlib.registry.DeltaboxRegistrate
 import com.dannbrown.musicbox.client.exe.FFmpeg
 import com.dannbrown.musicbox.client.exe.YoutubeDL
 import com.dannbrown.musicbox.content.gui.MusicDiscScreen
@@ -31,7 +31,7 @@ class MusicBoxModule {
     const val MOD_ID = "musicbox"
     const val NAME = "Music Box"
     val LOGGER = LogManager.getLogger()
-    val REGISTRATE = DataboxRegistrate(MOD_ID)
+    val REGISTRATE = DeltaboxRegistrate(MOD_ID)
 
     var playingSounds = mutableMapOf<BlockPos, FileSound>()
 

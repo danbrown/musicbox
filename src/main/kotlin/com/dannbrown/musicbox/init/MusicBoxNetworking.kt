@@ -1,6 +1,6 @@
 package com.dannbrown.musicbox
 
-import com.dannbrown.databoxlib.content.networking.NetworkPacketBase
+import com.dannbrown.deltaboxlib.content.networking.NetworkPacketBase
 import com.dannbrown.musicbox.content.networking.OpenDiscScreenS2CPacket
 import com.dannbrown.musicbox.content.networking.PlayCustomDiscS2CPacket
 import com.dannbrown.musicbox.content.networking.SaveDiscUrlC2SPacket

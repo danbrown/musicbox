@@ -1,7 +1,7 @@
 package com.dannbrown.musicbox.datagen
 
-import com.dannbrown.databoxlib.registry.datagen.DataboxRecipeProvider
-import com.dannbrown.databoxlib.registry.datagen.DatagenRootInterface
+import com.dannbrown.deltaboxlib.registry.datagen.DeltaboxRecipeProvider
+import com.dannbrown.deltaboxlib.registry.datagen.DatagenRootInterface
 import com.dannbrown.musicbox.MusicBoxModule
 import com.dannbrown.musicbox.datagen.lang.AddonLangGen
 import com.dannbrown.musicbox.datagen.recipe.AddonRecipeGen
@@ -29,7 +29,7 @@ class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Pr
       // Langs
       AddonLangGen.addStaticLangs(event.includeClient())
       // Recipes
-      DataboxRecipeProvider.registerGenerators(event.includeServer(), generator, AddonRecipeGen::class)
+      DeltaboxRecipeProvider.registerGenerators(event.includeServer(), generator, AddonRecipeGen::class)
     }
   }
 }

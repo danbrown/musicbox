@@ -1,6 +1,6 @@
 package com.dannbrown.musicbox.content.networking
 
-import com.dannbrown.databoxlib.content.networking.NetworkPacketBase
+import com.dannbrown.deltaboxlib.content.networking.NetworkPacketBase
 
 import com.dannbrown.musicbox.MusicBoxModule
 import com.dannbrown.musicbox.client.ClientAudioManager

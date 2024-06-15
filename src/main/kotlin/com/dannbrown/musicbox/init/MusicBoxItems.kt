@@ -1,6 +1,6 @@
 package com.dannbrown.musicbox
 
-import com.dannbrown.databoxlib.registry.generators.ItemGen
+import com.dannbrown.deltaboxlib.registry.generators.ItemGen
 import com.dannbrown.musicbox.content.items.URLDiscItem
 import net.minecraft.client.multiplayer.ClientLevel
 import net.minecraft.client.renderer.item.ItemProperties

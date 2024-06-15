@@ -1,6 +1,6 @@
 package com.dannbrown.musicbox.init
 
-import com.dannbrown.databoxlib.registry.generators.CreativeTabGen
+import com.dannbrown.deltaboxlib.registry.generators.CreativeTabGen
 import com.dannbrown.musicbox.MusicBoxModule
 import com.dannbrown.musicbox.MusicBoxItems
 import com.dannbrown.musicbox.content.items.URLDiscItem
