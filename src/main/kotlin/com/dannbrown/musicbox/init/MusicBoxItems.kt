@@ -25,7 +25,10 @@ object MusicBoxItems {
       val model = p.withExistingParent(c.name, p.mcLoc("item/generated")).texture("layer0", p.modLoc("item/custom_record"))
       for(i in 0 until URLDiscItem.DiscVariant.maxVariants() + 1){
         model.override()
-          .model(p.getExistingFile(p.modLoc("item/custom_record_${i}")))
+          .model(
+            p.withExistingParent("custom_record_${i}", p.mcLoc("item/generated"))
+              .texture("layer0", p.modLoc("item/custom_record${if(i == 0) "" else "_$i"}"))
+          )
           .predicate(p.modLoc("disc_variant"), 1.0f + (i.toFloat() / 100))
           .end()
       }

@@ -43,12 +43,11 @@ class MusicBoxModule {
       MusicBoxItems.register(modBus)
       MusicBoxScreens.register(modBus)
       MusicBoxLootModifiers.register(modBus)
+
       REGISTRATE.registerEventListeners(modBus)
       forgeEventBus.addListener(EventPriority.HIGH) { event: RegisterCommandsEvent -> onRegisterCommands(event) }
       modBus.addListener(::commonSetup)
-      modBus.addListener(EventPriority.LOWEST) { event: GatherDataEvent ->
-        MusicBoxDatagen.gatherData(event)
-      }
+      modBus.addListener(EventPriority.LOWEST) { event: GatherDataEvent -> MusicBoxDatagen.gatherData(event) }
     }
 
     fun registerClient(modBus: IEventBus, forgeEventBus: IEventBus) {

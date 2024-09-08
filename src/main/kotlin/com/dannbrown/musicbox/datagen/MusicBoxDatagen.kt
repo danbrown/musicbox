@@ -24,7 +24,7 @@ class MusicBoxDatagen(output: PackOutput, future: CompletableFuture<HolderLookup
       val generator = event.generator
       val packOutput = generator.packOutput
       val lookupProvider = event.lookupProvider
-
+      val existingFileHelper = event.existingFileHelper
       // Builder generators above
       generator.addProvider(event.includeServer(), MusicBoxDatagen(packOutput, lookupProvider))
       // Langs

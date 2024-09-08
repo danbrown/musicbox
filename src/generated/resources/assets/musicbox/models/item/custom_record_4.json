@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "musicbox:item/custom_record_11"
+    "layer0": "musicbox:item/custom_record_4"
   }
 }
