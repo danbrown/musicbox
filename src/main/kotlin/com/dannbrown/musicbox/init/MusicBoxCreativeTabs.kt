@@ -30,14 +30,7 @@ object MusicBoxCreativeTabs {
       CreativeModeTabs.SPAWN_EGGS,
       { parameters, output ->
         fun addSongRecord(url: String, duration: Int, name: String, variant: URLDiscItem.DiscVariant = URLDiscItem.DiscVariant.RED) {
-          val item = ItemStack(MusicBoxItems.CUSTOM_RECORD.get())
-          item.orCreateTag.putString(URLDiscItem.URL_TAG_KEY, url)
-          item.orCreateTag.putInt(URLDiscItem.DURATION_TAG_KEY, duration)
-          item.orCreateTag.putString(URLDiscItem.NAME_TAG_KEY, name)
-          item.orCreateTag.putInt(URLDiscItem.RADIUS_TAG_KEY, 30)
-          item.orCreateTag.putBoolean(URLDiscItem.LOCKED_TAG_KEY, false)
-          item.orCreateTag.putInt(URLDiscItem.TEXTURE_TAG_KEY, variant.toInt())
-          item.hoverName = Component.literal(name)
+          val item = URLDiscItem.createDiscItem(url, duration, name, variant)
           output.accept(item)
         }
         output.accept(ItemStack(Blocks.JUKEBOX))

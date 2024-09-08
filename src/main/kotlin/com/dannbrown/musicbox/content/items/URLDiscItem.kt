@@ -27,6 +27,18 @@ class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) :
     const val TEXTURE_TAG_KEY = "song_texture"
     const val RADIUS_TAG_KEY = "song_radius"
     const val LOCKED_TAG_KEY = "song_locked"
+
+    fun createDiscItem(url: String, duration: Int, name: String, variant: DiscVariant = DiscVariant.RED): ItemStack {
+      val item = ItemStack(MusicBoxItems.CUSTOM_RECORD.get())
+      item.orCreateTag.putString(URLDiscItem.URL_TAG_KEY, url)
+      item.orCreateTag.putInt(URLDiscItem.DURATION_TAG_KEY, duration)
+      item.orCreateTag.putString(URLDiscItem.NAME_TAG_KEY, name)
+      item.orCreateTag.putInt(URLDiscItem.RADIUS_TAG_KEY, 30)
+      item.orCreateTag.putBoolean(URLDiscItem.LOCKED_TAG_KEY, false)
+      item.orCreateTag.putInt(URLDiscItem.TEXTURE_TAG_KEY, variant.toInt())
+      item.hoverName = Component.literal(name)
+      return item
+    }
   }
 
   override fun getDescription(): Component {
