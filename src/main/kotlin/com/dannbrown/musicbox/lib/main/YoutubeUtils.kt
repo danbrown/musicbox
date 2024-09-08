@@ -8,7 +8,6 @@ object YoutubeUtils {
     val matcher = YOUTUBE_VIDEO_REGEX.matcher(url)
     return matcher.find() && url.contains("v=")
   }
-
   fun removeUrlParameters(url: String): String {
     return if (url.contains("v=")) {
       url.split("&".toRegex())

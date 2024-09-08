@@ -41,11 +41,6 @@ class OpenDiscScreenS2CPacket : NetworkPacketBase {
 
       val item = discItem ?: return@enqueueWork
       Minecraft.getInstance().setScreen(MusicDiscScreen(MusicDiscMenu(0, item), Inventory(Minecraft.getInstance().player)))
-
-//      Minecraft.getInstance().player?.openMenu(SimpleMenuProvider(
-//        { id: Int, inv: Inventory, _: Player -> MusicDiscMenu(id, itemUrl, itemLength) },
-//        Component.literal("")
-//      ))
     }
     return true
   }

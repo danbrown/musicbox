@@ -14,6 +14,6 @@ object AddonLangGen {
     MusicBoxModule.REGISTRATE.addRawLang(MusicBoxCommands.DOWNLOADING_SONG, "Downloading song %s")
     MusicBoxModule.REGISTRATE.addRawLang(MusicBoxCommands.DOWNLOADING_SONG_ERROR, "Downloading song %s failed")
     MusicBoxModule.REGISTRATE.addRawLang(MusicBoxCommands.DOWNLOADING_SONG_SUCCESS, "Downloading song %s succeeded")
-    MusicBoxModule.REGISTRATE.addRawLang(MusicBoxCommands.PLAYING_SONG, "Playing song for  %s")
+    MusicBoxModule.REGISTRATE.addRawLang(MusicBoxCommands.PLAYING_SONG, "Playing song for %s")
   }
 }

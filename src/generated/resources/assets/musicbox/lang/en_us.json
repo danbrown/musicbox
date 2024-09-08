@@ -2,7 +2,7 @@
   "command.musicbox.musicbox.downloading_song": "Downloading song %s",
   "command.musicbox.musicbox.downloading_song_error": "Downloading song %s failed",
   "command.musicbox.musicbox.downloading_song_success": "Downloading song %s succeeded",
-  "command.musicbox.musicbox.playing_song": "Playing song for  %s",
+  "command.musicbox.musicbox.playing_song": "Playing song for %s",
   "item.musicbox.custom_record": "Custom Record",
   "itemGroup.musicbox.musicbox_tab": "Music Box"
 }
