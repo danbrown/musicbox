@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.CreativeModeTabs
 import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.block.Blocks
 import net.minecraftforge.eventbus.api.IEventBus
 import net.minecraftforge.registries.DeferredRegister
 import net.minecraftforge.registries.RegistryObject
@@ -38,6 +39,7 @@ object MusicBoxCreativeTabs {
           item.hoverName = Component.literal(name)
           output.accept(item)
         }
+        output.accept(ItemStack(Blocks.JUKEBOX))
         output.accept(ItemStack(MusicBoxItems.CUSTOM_RECORD.get()))
         addSongRecord("https://www.youtube.com/watch?v=cvh0nX08nRw", 601, "Rick Astley - Never Gonna Give You Up")
         addSongRecord("https://www.youtube.com/watch?v=y6120QOlsfU", 232, "Darude - Sandstorm")
