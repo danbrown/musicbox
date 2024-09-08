@@ -17,6 +17,24 @@ import net.minecraft.world.entity.player.Player
 import org.lwjgl.glfw.GLFW
 
 class MusicDiscScreen(menu: MusicDiscMenu, private val inv: Inventory) : AbstractContainerScreen<MusicDiscMenu>(menu, inv, Component.literal("")) {
+  companion object {
+    const val LOCKED_DISC_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.locked"
+    const val DOWNLOADING_DISC_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.downloading"
+    const val DOWNLOADING_ERROR_DISC_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.downloading_error"
+    const val DOWNLOADING_SUCCESS_DISC_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.downloading_success"
+    const val NO_RECORD_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.no_record"
+    const val URL_INVALID_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.url_invalid"
+    const val YOUTUBE_INVALID_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.youtube_invalid"
+    const val URL_TOO_LONG_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.url_too_long"
+    const val RADIUS_TOO_SMALL_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.radius_too_small"
+    const val DISC_SAVED_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.disc_saved"
+
+    const val DURATION_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.duration"
+    const val SONG_NAME_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.song_name"
+    const val RADIUS_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.radius"
+    const val YOUTUBE_URL_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.youtube_url"
+  }
+
   private val TEXTURE = ResourceLocation(MusicBoxModule.MOD_ID, "textures/gui/record_input.png")
   private val BACKGROUND_WIDTH = 176
   private val BACKGROUND_HEIGHT = 80
@@ -41,7 +59,7 @@ class MusicDiscScreen(menu: MusicDiscMenu, private val inv: Inventory) : Abstrac
     val x = (this.width - BACKGROUND_WIDTH) / 2
     val y = (this.height - BACKGROUND_HEIGHT) / 2
     // Text field
-    this.TEXT_FIELD = EditBox(this.font, x + 62, y + 9, 98, 12, Component.literal("Youtube URL"))
+    this.TEXT_FIELD = EditBox(this.font, x + 62, y + 9, 98, 12, Component.translatable(YOUTUBE_URL_TRANSLATION_KEY))
     this.TEXT_FIELD!!.setCanLoseFocus(true)
     this.TEXT_FIELD!!.setTextColor(-1)
     this.TEXT_FIELD!!.setTextColorUneditable(-1)
@@ -53,7 +71,7 @@ class MusicDiscScreen(menu: MusicDiscMenu, private val inv: Inventory) : Abstrac
 
     // Duration field
     val playerDurationValue = menu.stack?.tag?.getInt(URLDiscItem.DURATION_TAG_KEY).toString()
-    this.DURATION_FIELD = EditBox(this.font, x + 62, y + 27, 98, 12, Component.literal("Duration (In Seconds)"))
+    this.DURATION_FIELD = EditBox(this.font, x + 62, y + 27, 98, 12, Component.translatable(DURATION_TRANSLATION_KEY))
     this.DURATION_FIELD!!.setCanLoseFocus(true)
     this.DURATION_FIELD!!.setTextColor(-1)
     this.DURATION_FIELD!!.setTextColorUneditable(-1)
@@ -64,7 +82,7 @@ class MusicDiscScreen(menu: MusicDiscMenu, private val inv: Inventory) : Abstrac
     this.addRenderableWidget(this.DURATION_FIELD!!)
 
     // Song name field
-    this.SONG_NAME_FIELD = EditBox(this.font, x + 62, y + 45, 98, 12, Component.literal("Song Name"))
+    this.SONG_NAME_FIELD = EditBox(this.font, x + 62, y + 45, 98, 12, Component.translatable(SONG_NAME_TRANSLATION_KEY))
     this.SONG_NAME_FIELD!!.setCanLoseFocus(true)
     this.SONG_NAME_FIELD!!.setTextColor(-1)
     this.SONG_NAME_FIELD!!.setTextColorUneditable(-1)
@@ -75,7 +93,7 @@ class MusicDiscScreen(menu: MusicDiscMenu, private val inv: Inventory) : Abstrac
 
     // Radius field
     val playerRadiusValue = menu.stack?.tag?.getInt(URLDiscItem.RADIUS_TAG_KEY).toString()
-    this.RADIUS_FIELD = EditBox(this.font, x + 62, y + 63, 98, 12, Component.literal("Radius"))
+    this.RADIUS_FIELD = EditBox(this.font, x + 62, y + 63, 98, 12, Component.translatable(RADIUS_TRANSLATION_KEY))
     this.RADIUS_FIELD!!.setCanLoseFocus(true)
     this.RADIUS_FIELD!!.setTextColor(-1)
     this.RADIUS_FIELD!!.setTextColorUneditable(-1)

@@ -1,7 +1,9 @@
 package com.dannbrown.musicbox.content.items
 
 import com.dannbrown.musicbox.MusicBoxItems
+import com.dannbrown.musicbox.MusicBoxModule
 import com.dannbrown.musicbox.MusicBoxNetworking
+import com.dannbrown.musicbox.content.gui.MusicDiscScreen
 import com.dannbrown.musicbox.content.networking.OpenDiscScreenS2CPacket
 import net.minecraft.network.chat.Component
 import net.minecraft.network.chat.MutableComponent
@@ -13,10 +15,11 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.RecordItem
 import net.minecraft.world.level.Level
-import kotlin.math.floor
 
 class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) : RecordItem(comparatorOutput, sound, props, 0) {
-  companion object{
+  companion object {
+    const val CUSTOM_DISC_TRANSLATION_KEY = "item.${MusicBoxModule.MOD_ID}.custom_record.tooltip"
+
     const val URL_MAX_LENGTH = 200
     const val URL_TAG_KEY = "song_url"
     const val DURATION_TAG_KEY = "song_duration" // in seconds
@@ -27,11 +30,11 @@ class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) :
   }
 
   override fun getDescription(): Component {
-    return Component.literal("URL Disc")
+    return Component.translatable(CUSTOM_DISC_TRANSLATION_KEY)
   }
 
   override fun getDisplayName(): MutableComponent {
-    return Component.literal("URL Disc")
+    return Component.translatable(CUSTOM_DISC_TRANSLATION_KEY)
   }
 
   override fun isFoil(stack: ItemStack): Boolean {
@@ -41,9 +44,9 @@ class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) :
 
   override fun use(world: Level, player: Player, pUsedHand: InteractionHand): InteractionResultHolder<ItemStack> {
     val stackInHand: ItemStack = player.getItemInHand(pUsedHand)
-    if (!world.isClientSide && stackInHand.`is`(MusicBoxItems.CUSTOM_RECORD.get())){
-      if(stackInHand.orCreateTag.getBoolean(LOCKED_TAG_KEY)){
-        player.displayClientMessage(Component.literal("This disc is locked!"), true)
+    if (!world.isClientSide && stackInHand.`is`(MusicBoxItems.CUSTOM_RECORD.get())) {
+      if (stackInHand.orCreateTag.getBoolean(LOCKED_TAG_KEY)) {
+        player.displayClientMessage(Component.translatable(MusicDiscScreen.LOCKED_DISC_TRANSLATION_KEY), true)
         return InteractionResultHolder.success(player.getItemInHand(pUsedHand))
       }
       MusicBoxNetworking.sendToPlayer(OpenDiscScreenS2CPacket(stackInHand), player as ServerPlayer)

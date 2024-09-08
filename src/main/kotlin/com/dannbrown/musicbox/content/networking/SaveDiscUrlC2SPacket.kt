@@ -3,6 +3,7 @@ package com.dannbrown.musicbox.content.networking
 import com.dannbrown.deltaboxlib.content.networking.NetworkPacketBase
 import com.dannbrown.musicbox.MusicBoxItems
 import com.dannbrown.musicbox.MusicBoxModule
+import com.dannbrown.musicbox.content.gui.MusicDiscScreen
 import com.dannbrown.musicbox.content.items.URLDiscItem
 import com.dannbrown.musicbox.lib.main.YoutubeUtils
 import net.minecraft.network.FriendlyByteBuf
@@ -56,7 +57,7 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
 
         // is not a custom record, or the url is null
         if(!stackInHand.`is`(MusicBoxItems.CUSTOM_RECORD.get()) || discUrl == null) {
-          player.displayClientMessage(Component.literal("No custom record found!"), true)
+          player.displayClientMessage(Component.translatable(MusicDiscScreen.NO_RECORD_TRANSLATION_KEY), true)
           return@enqueueWork
         }
 
@@ -66,25 +67,25 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
         try {
           URL(discUrl).toURI()
         } catch (e: Exception) {
-          player.displayClientMessage(Component.literal("Song URL is invalid!"), true)
+          player.displayClientMessage(Component.translatable(MusicDiscScreen.URL_INVALID_TRANSLATION_KEY), true)
           return@enqueueWork
         }
 
         // check if link is a youtube video
         if(!YoutubeUtils.isYoutubeVideo(discUrl!!)) {
-          player.displayClientMessage(Component.literal("Song URL is not a valid YouTube link!"), true)
+          player.displayClientMessage(Component.translatable(MusicDiscScreen.YOUTUBE_INVALID_TRANSLATION_KEY), true)
           return@enqueueWork
         }
 
         // check if url is too long
         if(discUrl!!.length > URLDiscItem.URL_MAX_LENGTH) {
-          player.displayClientMessage(Component.literal("Song URL is too long!"), true)
+          player.displayClientMessage(Component.translatable(MusicDiscScreen.URL_TOO_LONG_TRANSLATION_KEY), true)
           return@enqueueWork
         }
 
         // check if radius bigger than 0
         if(discRadius <= 0) {
-          player.displayClientMessage(Component.literal("Radius is too small!"), true)
+          player.displayClientMessage(Component.translatable(MusicDiscScreen.RADIUS_TOO_SMALL_TRANSLATION_KEY), true)
           return@enqueueWork
         }
 
@@ -102,7 +103,7 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
           stackInHand.setHoverName(Component.literal(discName))
         }
         player.setItemInHand(player.swingingArm, stackInHand)
-        player.displayClientMessage(Component.literal("Song Details saved!"), true)
+        player.displayClientMessage(Component.translatable(MusicDiscScreen.DISC_SAVED_TRANSLATION_KEY), true)
       } else {
         MusicBoxModule.LOGGER.error("Player was null when trying to save disc details")
       }
