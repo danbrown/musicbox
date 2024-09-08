@@ -19,7 +19,7 @@ object MusicBoxItems {
   val PLACEHOLDER_SOUND = SOUNDS.register("placeholder_sound") { SoundEvent.createFixedRangeEvent(ResourceLocation(MusicBoxModule.MOD_ID, "placeholder_sound"), 0.5f) }
   val ITEMS = ItemGen(MusicBoxModule.REGISTRATE)
 
- val MAX_VARIANTS = 10;
+ val MAX_VARIANTS = 27;
 
   val CUSTOM_RECORD = ITEMS.registrate.item<URLDiscItem>("custom_record") { p -> URLDiscItem(17, PLACEHOLDER_SOUND.get(), p.stacksTo(1)) }
     .tag(ItemTags.MUSIC_DISCS)

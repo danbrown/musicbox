@@ -66,6 +66,108 @@
       "predicate": {
         "musicbox:disc_variant": 1.1
       }
+    },
+    {
+      "model": "musicbox:item/custom_record_11",
+      "predicate": {
+        "musicbox:disc_variant": 1.11
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_12",
+      "predicate": {
+        "musicbox:disc_variant": 1.12
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_13",
+      "predicate": {
+        "musicbox:disc_variant": 1.13
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_14",
+      "predicate": {
+        "musicbox:disc_variant": 1.14
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_15",
+      "predicate": {
+        "musicbox:disc_variant": 1.15
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_16",
+      "predicate": {
+        "musicbox:disc_variant": 1.16
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_17",
+      "predicate": {
+        "musicbox:disc_variant": 1.17
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_18",
+      "predicate": {
+        "musicbox:disc_variant": 1.1800001
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_19",
+      "predicate": {
+        "musicbox:disc_variant": 1.19
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_20",
+      "predicate": {
+        "musicbox:disc_variant": 1.2
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_21",
+      "predicate": {
+        "musicbox:disc_variant": 1.21
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_22",
+      "predicate": {
+        "musicbox:disc_variant": 1.22
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_23",
+      "predicate": {
+        "musicbox:disc_variant": 1.23
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_24",
+      "predicate": {
+        "musicbox:disc_variant": 1.24
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_25",
+      "predicate": {
+        "musicbox:disc_variant": 1.25
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_26",
+      "predicate": {
+        "musicbox:disc_variant": 1.26
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_27",
+      "predicate": {
+        "musicbox:disc_variant": 1.27
+      }
     }
   ],
   "textures": {

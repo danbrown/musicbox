@@ -256,7 +256,6 @@ tasks.withType(ProcessResources).configureEach {
             kff_loader_version_range: kff_loader_version_range,
 
             deltaboxlib_version_range: deltaboxlib_version_range,
-            farmersdelight_version_range: farmersdelight_version_range,
 
             mod_id                  : mod_id,
             mod_name                : mod_name,
