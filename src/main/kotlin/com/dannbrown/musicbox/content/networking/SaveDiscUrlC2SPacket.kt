@@ -4,7 +4,7 @@ import com.dannbrown.deltaboxlib.content.networking.NetworkPacketBase
 import com.dannbrown.musicbox.MusicBoxItems
 import com.dannbrown.musicbox.MusicBoxModule
 import com.dannbrown.musicbox.content.items.URLDiscItem
-import com.dannbrown.musicbox.main.YoutubeUtils
+import com.dannbrown.musicbox.lib.main.YoutubeUtils
 import net.minecraft.network.FriendlyByteBuf
 import net.minecraft.network.chat.Component
 import net.minecraft.sounds.SoundEvents
@@ -89,7 +89,7 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
         }
 
         player.level().playSound(null, player.blockPosition(), SoundEvents.VILLAGER_WORK_CARTOGRAPHER, SoundSource.PLAYERS, 1.0f, 1.0f)
-        stackInHand.orCreateTag.putString(URLDiscItem.URL_TAG_KEY, YoutubeUtils.removeUrlParameters(discUrl))
+        stackInHand.orCreateTag.putString(URLDiscItem.URL_TAG_KEY, YoutubeUtils.removeUrlParameters(discUrl!!))
         stackInHand.orCreateTag.putInt(URLDiscItem.DURATION_TAG_KEY, durationToWrite)
         stackInHand.orCreateTag.putString(URLDiscItem.NAME_TAG_KEY, discName)
         stackInHand.orCreateTag.putInt(URLDiscItem.RADIUS_TAG_KEY, discRadius)

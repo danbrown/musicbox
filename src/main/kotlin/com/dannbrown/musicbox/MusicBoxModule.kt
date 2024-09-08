@@ -1,14 +1,14 @@
 package com.dannbrown.musicbox
 
 import com.dannbrown.deltaboxlib.registry.DeltaboxRegistrate
-import com.dannbrown.musicbox.client.exe.FFmpeg
-import com.dannbrown.musicbox.client.exe.YoutubeDL
 import com.dannbrown.musicbox.content.gui.MusicDiscScreen
 import com.dannbrown.musicbox.datagen.AddonDatagen
+import com.dannbrown.musicbox.init.MusicBoxCommands
 import com.dannbrown.musicbox.init.MusicBoxCreativeTabs
 import com.dannbrown.musicbox.init.MusicBoxScreens
-import com.dannbrown.musicbox.main.FileSound
-import com.dannbrown.musicbox.main.MusicBoxCommands
+import com.dannbrown.musicbox.lib.executable.FFmpeg
+import com.dannbrown.musicbox.lib.executable.YoutubeDL
+import com.dannbrown.musicbox.lib.main.FileSound
 import net.minecraft.client.gui.screens.MenuScreens
 import net.minecraft.core.BlockPos
 import net.minecraftforge.common.MinecraftForge

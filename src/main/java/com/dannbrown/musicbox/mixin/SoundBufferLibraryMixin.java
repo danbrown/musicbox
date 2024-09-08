@@ -1,7 +1,7 @@
 package com.dannbrown.musicbox.mixin;
 
 import com.dannbrown.musicbox.MusicBoxModule;
-import com.dannbrown.musicbox.client.ClientAudioManager;
+import com.dannbrown.musicbox.lib.client.ClientAudioManager;
 import com.mojang.blaze3d.audio.OggAudioStream;
 import net.minecraft.Util;
 import net.minecraft.client.sounds.AudioStream;

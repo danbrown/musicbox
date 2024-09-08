@@ -1,10 +1,9 @@
 package com.dannbrown.musicbox.content.networking
 
 import com.dannbrown.deltaboxlib.content.networking.NetworkPacketBase
-
 import com.dannbrown.musicbox.MusicBoxModule
-import com.dannbrown.musicbox.client.ClientAudioManager
-import com.dannbrown.musicbox.main.FileSound
+import com.dannbrown.musicbox.lib.client.ClientAudioManager
+import com.dannbrown.musicbox.lib.main.FileSound
 import net.minecraft.client.Minecraft
 import net.minecraft.core.BlockPos
 import net.minecraft.network.FriendlyByteBuf
@@ -69,12 +68,12 @@ class PlayCustomDiscS2CPacket : NetworkPacketBase {
         return@enqueueWork
       }
 
-      if(!ClientAudioManager.fileNameToFile(fileNameWithExtension).exists() && client.player != null) {
+      if(!ClientAudioManager.fileNameToFile(fileNameWithExtension)!!.exists() && client.player != null) {
         client.player!!.sendSystemMessage(Component.literal("Downloading music, please wait a moment..."))
         ClientAudioManager.downloadAudio(discUrl!!, fileName).thenAccept { result ->
           if(result){
             client.player!!.sendSystemMessage(Component.literal("Download complete!"))
-            val newFileSound = FileSound(fileName, blockPos, discRadius)
+            val newFileSound = FileSound(fileName, blockPos!!, discRadius)
             MusicBoxModule.playingSounds[blockPos!!] = newFileSound
             client.soundManager.play(newFileSound)
             MusicBoxModule.LOGGER.info("Playing sound $fileName in $blockPos")
@@ -83,7 +82,7 @@ class PlayCustomDiscS2CPacket : NetworkPacketBase {
           }
         }
       } else {
-        val newFileSound = FileSound(fileName, blockPos, discRadius)
+        val newFileSound = FileSound(fileName, blockPos!!, discRadius)
         MusicBoxModule.playingSounds[blockPos!!] = newFileSound
         client.soundManager.play(newFileSound)
         MusicBoxModule.LOGGER.info("Playing sound $fileName in $blockPos")

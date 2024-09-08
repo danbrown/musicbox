@@ -1,8 +1,8 @@
 package com.dannbrown.musicbox.datagen.lang
 
 import com.dannbrown.musicbox.MusicBoxModule
+import com.dannbrown.musicbox.init.MusicBoxCommands
 import com.dannbrown.musicbox.init.MusicBoxCreativeTabs
-import com.dannbrown.musicbox.main.MusicBoxCommands
 
 object AddonLangGen {
   fun addStaticLangs(doRun: Boolean) {
