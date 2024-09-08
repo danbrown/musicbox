@@ -19,14 +19,11 @@ object MusicBoxItems {
   val PLACEHOLDER_SOUND = SOUNDS.register("placeholder_sound") { SoundEvent.createFixedRangeEvent(ResourceLocation(MusicBoxModule.MOD_ID, "placeholder_sound"), 0.5f) }
   val ITEMS = ItemGen(MusicBoxModule.REGISTRATE)
 
- val MAX_VARIANTS = 27;
-
   val CUSTOM_RECORD = ITEMS.registrate.item<URLDiscItem>("custom_record") { p -> URLDiscItem(17, PLACEHOLDER_SOUND.get(), p.stacksTo(1)) }
     .tag(ItemTags.MUSIC_DISCS)
     .model { c, p ->
-      val model = p.withExistingParent(c.name, p.mcLoc("item/generated"))
-        .texture("layer0", p.modLoc("item/custom_record"))
-      for(i in 0 until MAX_VARIANTS+1){
+      val model = p.withExistingParent(c.name, p.mcLoc("item/generated")).texture("layer0", p.modLoc("item/custom_record"))
+      for(i in 0 until URLDiscItem.DiscVariant.maxVariants() + 1){
         model.override()
           .model(p.getExistingFile(p.modLoc("item/custom_record_${i}")))
           .predicate(p.modLoc("disc_variant"), 1.0f + (i.toFloat() / 100))
@@ -42,19 +39,9 @@ object MusicBoxItems {
   fun addDiscPredicate(event: FMLClientSetupEvent) {
     ItemProperties.register(CUSTOM_RECORD.get(), ResourceLocation("${MusicBoxModule.MOD_ID}:disc_variant"))
     { stack: ItemStack, world: ClientLevel?, entity: LivingEntity?, i: Int ->
-
-      val itemName = stack.orCreateTag.getString(URLDiscItem.NAME_TAG_KEY)
-      val key = getVariantNumber(itemName).toString()
-      val variant = 1.0f + (key.toFloat() / 100)
-      return@register variant ?: 1.0f
+      val itemTexture = stack.orCreateTag.getInt(URLDiscItem.TEXTURE_TAG_KEY)
+      val variant = 1.0f + (itemTexture.toFloat() / 100)
+      return@register variant
     }
-  }
-
-  private fun getVariantNumber(name: String): Int {
-    if(name.isEmpty()) return 0
-    // transform the name into a number between 1 and max
-    val maxVariant = MAX_VARIANTS - 1
-    val hash = name.hashCode()
-    return Math.floorMod(hash, maxVariant) + 1
   }
 }

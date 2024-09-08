@@ -29,19 +29,20 @@ object MusicBoxCreativeTabs {
       { ItemStack(MusicBoxItems.CUSTOM_RECORD.get()) },
       CreativeModeTabs.SPAWN_EGGS,
       { parameters, output ->
-        fun addSongRecord(url: String, duration: Int, name: String) {
+        fun addSongRecord(url: String, duration: Int, name: String, variant: URLDiscItem.DiscVariant = URLDiscItem.DiscVariant.RED) {
           val item = ItemStack(MusicBoxItems.CUSTOM_RECORD.get())
           item.orCreateTag.putString(URLDiscItem.URL_TAG_KEY, url)
           item.orCreateTag.putInt(URLDiscItem.DURATION_TAG_KEY, duration)
           item.orCreateTag.putString(URLDiscItem.NAME_TAG_KEY, name)
           item.orCreateTag.putInt(URLDiscItem.RADIUS_TAG_KEY, 30)
           item.orCreateTag.putBoolean(URLDiscItem.LOCKED_TAG_KEY, false)
+          item.orCreateTag.putInt(URLDiscItem.TEXTURE_TAG_KEY, variant.toInt())
           item.hoverName = Component.literal(name)
           output.accept(item)
         }
         output.accept(ItemStack(Blocks.JUKEBOX))
         output.accept(ItemStack(MusicBoxItems.CUSTOM_RECORD.get()))
-        addSongRecord("https://www.youtube.com/watch?v=cvh0nX08nRw", 601, "Rick Astley - Never Gonna Give You Up")
+        addSongRecord("https://www.youtube.com/watch?v=cvh0nX08nRw", 601, "Rick Astley - Never Gonna Give You Up", URLDiscItem.DiscVariant.BLUE)
         addSongRecord("https://www.youtube.com/watch?v=y6120QOlsfU", 232, "Darude - Sandstorm")
         addSongRecord("https://www.youtube.com/watch?v=9bZkp7q19f0", 252, "PSY - GANGNAM STYLE")
         addSongRecord("https://www.youtube.com/watch?v=l8S1NzEmfcQ", 247, "DJ BoBo - Love Is All Around")

@@ -94,6 +94,10 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
         stackInHand.orCreateTag.putString(URLDiscItem.NAME_TAG_KEY, discName)
         stackInHand.orCreateTag.putInt(URLDiscItem.RADIUS_TAG_KEY, discRadius)
         stackInHand.orCreateTag.putBoolean(URLDiscItem.LOCKED_TAG_KEY, locked)
+
+        // just set a random texture if the disc is not locked
+        if(!locked) stackInHand.orCreateTag.putInt(URLDiscItem.TEXTURE_TAG_KEY, URLDiscItem.DiscVariant.random().toInt())
+
         if(!discName.isNullOrEmpty()){
           stackInHand.setHoverName(Component.literal(discName))
         }

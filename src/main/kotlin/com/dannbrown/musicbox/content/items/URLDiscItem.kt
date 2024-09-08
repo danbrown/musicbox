@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.RecordItem
 import net.minecraft.world.level.Level
+import kotlin.math.floor
 
 class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) : RecordItem(comparatorOutput, sound, props, 0) {
   companion object{
@@ -20,6 +21,7 @@ class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) :
     const val URL_TAG_KEY = "song_url"
     const val DURATION_TAG_KEY = "song_duration" // in seconds
     const val NAME_TAG_KEY = "song_name"
+    const val TEXTURE_TAG_KEY = "song_texture"
     const val RADIUS_TAG_KEY = "song_radius"
     const val LOCKED_TAG_KEY = "song_locked"
   }
@@ -48,5 +50,46 @@ class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) :
       return InteractionResultHolder.success(player.getItemInHand(pUsedHand))
     }
     return super.use(world, player, pUsedHand)
+  }
+
+  enum class DiscVariant {
+    LIGHT_BLUE,
+    CYAN,
+    BLUE,
+    PURPLE,
+    MAGENTA,
+    RED,
+    ORANGE,
+    YELLOW,
+    LIME,
+    GREEN,
+    AMETHYST,
+    DIAMOND,
+    EMERALD,
+    GOLD,
+    LAVA,
+    COOKIE,
+    CHORUS,
+    LAPIS,
+    ENDER_EYE,
+    ENDER_PEARL,
+    MAGMA,
+    OCEAN,
+    HONEY,
+    PETRIFIED,
+    MAGMA_CREAM,
+    MELON,
+    NAUTILUS;
+    fun toInt(): Int {
+      return this.ordinal + 1
+    }
+    companion object {
+      fun random(): DiscVariant {
+        return values().random()
+      }
+      fun maxVariants(): Int {
+        return values().size
+      }
+    }
   }
 }
