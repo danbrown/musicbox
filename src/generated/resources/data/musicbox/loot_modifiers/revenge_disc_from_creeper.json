@@ -1,0 +1,18 @@
+{
+  "type": "musicbox:add_disc_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:entities/creeper"
+    },
+    {
+      "chance": 0.01,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "duration": 264,
+  "name": "CaptainSparklez - Revenge",
+  "radius": 30,
+  "url": "https://www.youtube.com/watch?v=cPJUBQd-PNM",
+  "variant": 10
+}

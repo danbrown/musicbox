@@ -9,7 +9,7 @@ import net.minecraft.world.item.Items
 import net.minecraft.world.level.block.Blocks
 import java.util.function.Consumer
 
-class AddonRecipeGen : DeltaboxRecipeSlice(MusicBoxModule.MOD_ID) {
+class MusicBoxRecipeGen : DeltaboxRecipeSlice(MusicBoxModule.MOD_ID) {
   override fun name(): String {
     return "Music Box Addon Recipes"
   }

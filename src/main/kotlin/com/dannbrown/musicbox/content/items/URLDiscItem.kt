@@ -28,14 +28,14 @@ class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) :
     const val RADIUS_TAG_KEY = "song_radius"
     const val LOCKED_TAG_KEY = "song_locked"
 
-    fun createDiscItem(url: String, duration: Int, name: String, variant: DiscVariant = DiscVariant.RED): ItemStack {
+    fun createDiscItem(url: String, duration: Int, name: String, variant: DiscVariant = DiscVariant.RED, radius: Int = 30, locked: Boolean = false): ItemStack {
       val item = ItemStack(MusicBoxItems.CUSTOM_RECORD.get())
-      item.orCreateTag.putString(URLDiscItem.URL_TAG_KEY, url)
-      item.orCreateTag.putInt(URLDiscItem.DURATION_TAG_KEY, duration)
-      item.orCreateTag.putString(URLDiscItem.NAME_TAG_KEY, name)
-      item.orCreateTag.putInt(URLDiscItem.RADIUS_TAG_KEY, 30)
-      item.orCreateTag.putBoolean(URLDiscItem.LOCKED_TAG_KEY, false)
-      item.orCreateTag.putInt(URLDiscItem.TEXTURE_TAG_KEY, variant.toInt())
+      item.orCreateTag.putString(URL_TAG_KEY, url)
+      item.orCreateTag.putInt(DURATION_TAG_KEY, duration)
+      item.orCreateTag.putString(NAME_TAG_KEY, name)
+      item.orCreateTag.putInt(RADIUS_TAG_KEY, radius)
+      item.orCreateTag.putBoolean(LOCKED_TAG_KEY, locked)
+      item.orCreateTag.putInt(TEXTURE_TAG_KEY, variant.toInt())
       item.hoverName = Component.literal(name)
       return item
     }
@@ -101,6 +101,9 @@ class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) :
     companion object {
       fun random(): DiscVariant {
         return values().random()
+      }
+      fun fromInt(value: Int): DiscVariant {
+        return values().getOrElse(value - 1) { RED }
       }
       fun maxVariants(): Int {
         return values().size

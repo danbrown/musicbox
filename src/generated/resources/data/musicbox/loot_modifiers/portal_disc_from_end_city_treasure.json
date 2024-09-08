@@ -1,0 +1,18 @@
+{
+  "type": "musicbox:add_disc_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/end_city_treasure"
+    },
+    {
+      "chance": 0.5,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "duration": 22,
+  "name": "Portal - Radio Loop",
+  "radius": 30,
+  "url": "https://www.youtube.com/watch?v=jcxeENnM0yI",
+  "variant": 16
+}

@@ -1,0 +1,18 @@
+{
+  "type": "musicbox:add_disc_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/bastion_treasure"
+    },
+    {
+      "chance": 0.5,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "duration": 295,
+  "name": "Yugo Kanno - Golden Wind",
+  "radius": 30,
+  "url": "https://www.youtube.com/watch?v=U0TXIXTzJEY",
+  "variant": 14
+}

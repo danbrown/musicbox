@@ -1,0 +1,18 @@
+{
+  "type": "musicbox:add_disc_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/abandoned_mineshaft"
+    },
+    {
+      "chance": 0.5,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "duration": 228,
+  "name": "BebopVox - Don't Mine At Night",
+  "radius": 30,
+  "url": "https://www.youtube.com/watch?v=X_XGxzMrq04",
+  "variant": 24
+}

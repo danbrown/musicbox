@@ -1,0 +1,18 @@
+{
+  "type": "musicbox:add_disc_loot",
+  "conditions": [
+    {
+      "block": "minecraft:grass",
+      "condition": "minecraft:block_state_property"
+    },
+    {
+      "chance": 1.0E-4,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "duration": 316,
+  "name": "C418 - Sweden (Caution & Crisis Remix)",
+  "radius": 30,
+  "url": "https://www.youtube.com/watch?v=3pbvmR8n27w",
+  "variant": 3
+}

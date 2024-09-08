@@ -2,9 +2,10 @@ package com.dannbrown.musicbox
 
 import com.dannbrown.deltaboxlib.registry.DeltaboxRegistrate
 import com.dannbrown.musicbox.content.gui.MusicDiscScreen
-import com.dannbrown.musicbox.datagen.AddonDatagen
+import com.dannbrown.musicbox.datagen.MusicBoxDatagen
 import com.dannbrown.musicbox.init.MusicBoxCommands
 import com.dannbrown.musicbox.init.MusicBoxCreativeTabs
+import com.dannbrown.musicbox.init.MusicBoxLootModifiers
 import com.dannbrown.musicbox.init.MusicBoxScreens
 import com.dannbrown.musicbox.lib.executable.FFmpeg
 import com.dannbrown.musicbox.lib.executable.YoutubeDL
@@ -41,11 +42,12 @@ class MusicBoxModule {
       MusicBoxCreativeTabs.register(modBus)
       MusicBoxItems.register(modBus)
       MusicBoxScreens.register(modBus)
+      MusicBoxLootModifiers.register(modBus)
       REGISTRATE.registerEventListeners(modBus)
       forgeEventBus.addListener(EventPriority.HIGH) { event: RegisterCommandsEvent -> onRegisterCommands(event) }
       modBus.addListener(::commonSetup)
       modBus.addListener(EventPriority.LOWEST) { event: GatherDataEvent ->
-        AddonDatagen.gatherData(event)
+        MusicBoxDatagen.gatherData(event)
       }
     }
 

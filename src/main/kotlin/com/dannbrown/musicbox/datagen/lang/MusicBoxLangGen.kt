@@ -6,7 +6,7 @@ import com.dannbrown.musicbox.content.items.URLDiscItem
 import com.dannbrown.musicbox.init.MusicBoxCommands
 import com.dannbrown.musicbox.init.MusicBoxCreativeTabs
 
-object AddonLangGen {
+object MusicBoxLangGen {
   fun addStaticLangs(doRun: Boolean) {
     if (!doRun) return // avoid running in the server-side
     // Creative tabs

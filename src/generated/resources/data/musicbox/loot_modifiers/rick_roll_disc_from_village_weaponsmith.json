@@ -1,0 +1,18 @@
+{
+  "type": "musicbox:add_disc_loot",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/village/village_weaponsmith"
+    },
+    {
+      "chance": 0.3,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "duration": 601,
+  "name": "Rick Astley - Never Gonna Give You Up",
+  "radius": 30,
+  "url": "https://www.youtube.com/watch?v=cvh0nX08nRw",
+  "variant": 12
+}

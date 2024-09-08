@@ -3,8 +3,9 @@ package com.dannbrown.musicbox.datagen
 import com.dannbrown.deltaboxlib.registry.datagen.DatagenRootInterface
 import com.dannbrown.deltaboxlib.registry.datagen.recipe.DeltaboxRecipeProvider
 import com.dannbrown.musicbox.MusicBoxModule
-import com.dannbrown.musicbox.datagen.lang.AddonLangGen
-import com.dannbrown.musicbox.datagen.recipe.AddonRecipeGen
+import com.dannbrown.musicbox.datagen.lang.MusicBoxLangGen
+import com.dannbrown.musicbox.datagen.loot.MusicBoxGlobalLootModifiers
+import com.dannbrown.musicbox.datagen.recipe.MusicBoxRecipeGen
 import net.minecraft.core.HolderLookup
 import net.minecraft.core.RegistrySetBuilder
 import net.minecraft.data.PackOutput
@@ -12,7 +13,7 @@ import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider
 import net.minecraftforge.data.event.GatherDataEvent
 import java.util.concurrent.CompletableFuture
 
-class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Provider>) : DatapackBuiltinEntriesProvider(output, future, BUILDER, modIds){
+class MusicBoxDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Provider>) : DatapackBuiltinEntriesProvider(output, future, BUILDER, modIds){
   companion object: DatagenRootInterface{
     override val modIds: MutableSet<String> = mutableSetOf(
       MusicBoxModule.MOD_ID
@@ -25,11 +26,13 @@ class AddonDatagen(output: PackOutput, future: CompletableFuture<HolderLookup.Pr
       val lookupProvider = event.lookupProvider
 
       // Builder generators above
-      generator.addProvider(event.includeServer(), AddonDatagen(packOutput, lookupProvider))
+      generator.addProvider(event.includeServer(), MusicBoxDatagen(packOutput, lookupProvider))
       // Langs
-      AddonLangGen.addStaticLangs(event.includeClient())
+      MusicBoxLangGen.addStaticLangs(event.includeClient())
       // Recipes
-      generator.addProvider(event.includeServer(),DeltaboxRecipeProvider(packOutput, listOf(AddonRecipeGen())))
+      generator.addProvider(event.includeServer(), DeltaboxRecipeProvider(packOutput, listOf(MusicBoxRecipeGen())))
+      // Global loot modifiers
+      generator.addProvider(event.includeServer(), MusicBoxGlobalLootModifiers(packOutput))
     }
   }
 }
