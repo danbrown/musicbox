@@ -13,6 +13,7 @@ out
 *.iml
 .idea
 .vscode
+.cache
 
 # gradle
 build
@@ -23,3 +24,4 @@ eclipse
 run
 run-data
 Icon*
+.DS_Store
