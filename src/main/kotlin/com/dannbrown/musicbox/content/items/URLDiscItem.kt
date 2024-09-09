@@ -81,7 +81,7 @@ class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) :
     AMETHYST,
     DIAMOND,
     EMERALD,
-    GOLD,
+    GLIDED,
     LAVA,
     COOKIE,
     CHORUS,
@@ -94,7 +94,20 @@ class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) :
     PETRIFIED,
     MAGMA_CREAM,
     MELON,
-    NAUTILUS;
+    NAUTILUS,
+    DUSTY,
+    HORNED,
+    SHREK,
+    GOLDEN,
+    COPPER,
+    OXIDIZED,
+    PRECIPICE,
+    MOSSY,
+    DRIPSTONE,
+    MINECRAFT,
+    CREEPER,
+    PEWDIEPIE,
+    PURPUR;
     fun toInt(): Int {
       return this.ordinal + 1
     }

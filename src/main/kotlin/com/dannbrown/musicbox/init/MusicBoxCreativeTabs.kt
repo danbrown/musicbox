@@ -54,6 +54,9 @@ object MusicBoxCreativeTabs {
         output.accept(MusicBoxDiscs.PRECIPICE)
         output.accept(MusicBoxDiscs.STARBOUND)
         output.accept(MusicBoxDiscs.PORTAL)
+        output.accept(MusicBoxDiscs.ARBEET)
+        output.accept(MusicBoxDiscs.ALLSTAR)
+        output.accept(MusicBoxDiscs.DIREDIREDOCKS)
       }
     )
 }
