@@ -35,6 +35,7 @@ object MusicBoxCreativeTabs {
         output.accept(MusicBoxDiscs.RICK_ROLL)
         output.accept(MusicBoxDiscs.DARUDE_SANDSTORM)
         output.accept(MusicBoxDiscs.GANGNAM_STYLE)
+        output.accept(MusicBoxDiscs.ALLSTAR)
         output.accept(MusicBoxDiscs.DJBOBO)
         output.accept(MusicBoxDiscs.ROCKETMAN)
         output.accept(MusicBoxDiscs.GOLDEN_WIND)
@@ -54,9 +55,10 @@ object MusicBoxCreativeTabs {
         output.accept(MusicBoxDiscs.PRECIPICE)
         output.accept(MusicBoxDiscs.STARBOUND)
         output.accept(MusicBoxDiscs.PORTAL)
-        output.accept(MusicBoxDiscs.ARBEET)
-        output.accept(MusicBoxDiscs.ALLSTAR)
         output.accept(MusicBoxDiscs.DIREDIREDOCKS)
+        output.accept(MusicBoxDiscs.ARBEET)
+        output.accept(MusicBoxDiscs.SHADOMAL1)
+        output.accept(MusicBoxDiscs.SHADOMAL2)
       }
     )
 }

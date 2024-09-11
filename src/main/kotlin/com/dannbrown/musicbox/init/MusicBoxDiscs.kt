@@ -28,4 +28,6 @@ object MusicBoxDiscs {
   val DIREDIREDOCKS = URLDiscItem.createDiscItem("https://www.youtube.com/watch?v=RRfHbyCQDCo", 188, "Super Mario 64 - Dire Dire Docks", URLDiscItem.DiscVariant.NAUTILUS)
   val PORTAL = URLDiscItem.createDiscItem("https://www.youtube.com/watch?v=jcxeENnM0yI", 22, "Portal - Radio Loop", URLDiscItem.DiscVariant.COOKIE)
   val ARBEET = URLDiscItem.createDiscItem("https://www.youtube.com/watch?v=H4eaMfUtynM", 207, "grandson - Dirty", URLDiscItem.DiscVariant.PETRIFIED)
+  val SHADOMAL1 = URLDiscItem.createDiscItem("https://www.youtube.com/watch?v=5jtkwAbKyjM", 308, "Balduin & Wolfgang Lohr - Dizzy (ft. Alanna)", URLDiscItem.DiscVariant.MINECRAFT)
+  val SHADOMAL2 = URLDiscItem.createDiscItem("https://www.youtube.com/watch?v=hGZL_5Wn3aQ", 542, "Imperial Circus Dead Decadence - Uta", URLDiscItem.DiscVariant.HORNED)
 }
