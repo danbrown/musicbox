@@ -24,7 +24,7 @@ class FileSound(private val fileName: String, private val position: BlockPos, pr
   }
 
   override fun getSource(): SoundSource {
-    return SoundSource.BLOCKS
+    return SoundSource.RECORDS
   }
 
   override fun isLooping(): Boolean {
