@@ -71,7 +71,7 @@ class PlayCustomDiscS2CPacket : NetworkPacketBase {
 
       // Check if a download is already happening at this BlockPos
       if (MusicBoxModule.ongoingDownloads[blockPos] == true) {
-        MusicBoxModule.LOGGER.warn("Download already in progress for $blockPos, allowing new download but will not play.")
+        MusicBoxModule.LOGGER.warn("Download already in progress for $blockPos, allowing new download but will play the first to finish.")
       } else {
         // Mark the download as in progress
         MusicBoxModule.ongoingDownloads[blockPos!!] = true
