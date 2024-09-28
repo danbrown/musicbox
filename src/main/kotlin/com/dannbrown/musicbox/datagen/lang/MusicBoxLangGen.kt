@@ -14,7 +14,7 @@ object MusicBoxLangGen {
 
     // Tooltips
     MusicBoxModule.REGISTRATE.addRawLang(URLDiscItem.CUSTOM_DISC_TRANSLATION_KEY, "Custom Disc")
-    MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.LOCKED_DISC_TRANSLATION_KEY, "This disc is locked!")
+    MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.LOCKED_DISC_TRANSLATION_KEY, "This disc is signed!")
     MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.DOWNLOADING_DISC_TRANSLATION_KEY, "Downloading music, please wait a moment...")
     MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.DOWNLOADING_ERROR_DISC_TRANSLATION_KEY, "Failed to download music!")
     MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.DOWNLOADING_SUCCESS_DISC_TRANSLATION_KEY, "Download complete!")

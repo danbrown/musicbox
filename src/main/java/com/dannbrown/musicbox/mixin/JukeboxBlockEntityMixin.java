@@ -28,7 +28,7 @@ public abstract class JukeboxBlockEntityMixin extends BlockEntityMixin implement
   @Inject(at = @At("TAIL"), method = "popOutRecord")
   public void dropRecord(CallbackInfo ci) {
     // send to all players a empty string to stop the music on that position
-    MusicBoxNetworking.sendToAllClients(new PlayCustomDiscS2CPacket(this.worldPosition, "", 0));
+    MusicBoxNetworking.sendToAllClients(new PlayCustomDiscS2CPacket(this.worldPosition, "", 0, 1.0f));
   }
 
   @Inject(at = @At("HEAD"), method = "startPlaying")
@@ -37,10 +37,11 @@ public abstract class JukeboxBlockEntityMixin extends BlockEntityMixin implement
     if (recordStack.getItem() instanceof URLDiscItem && !this.level.isClientSide()) {
       String musicUrl = recordStack.getOrCreateTag().getString(URLDiscItem.URL_TAG_KEY);
       int musicRadius = recordStack.getOrCreateTag().getInt(URLDiscItem.RADIUS_TAG_KEY);
+      float pitch = recordStack.getOrCreateTag().getFloat(URLDiscItem.PITCH_TAG_KEY);
 
       if (!musicUrl.isEmpty()) {
         // send to all players the music url to play on that position
-        MusicBoxNetworking.sendToAllClients(new PlayCustomDiscS2CPacket(this.worldPosition, musicUrl, musicRadius));
+        MusicBoxNetworking.sendToAllClients(new PlayCustomDiscS2CPacket(this.worldPosition, musicUrl, musicRadius, pitch));
       }
     }
   }

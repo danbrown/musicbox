@@ -20,6 +20,7 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
   private var discName: String? = null
   private var discRadius: Int = 0
   private var locked: Boolean = false
+  private var pitch: Float = 1.0f
 
   constructor()
   constructor (buffer: FriendlyByteBuf) : this() {
@@ -28,14 +29,16 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
     discName = buffer.readByteArray().toString(Charsets.UTF_8)
     discRadius = buffer.readLong().toInt()
     locked = buffer.readBoolean()
+    pitch = buffer.readFloat()
   }
 
-  constructor (urlName: String, discLength: Int, discName: String, discRadius: Int, locked: Boolean) : this() {
+  constructor (urlName: String, discLength: Int, discName: String, discRadius: Int, locked: Boolean, pitch: Float = 1.0f) : this() {
     this.discUrl = urlName
     this.discDuration = discLength
     this.discName = discName
     this.discRadius = discRadius
     this.locked = locked
+    this.pitch = pitch
   }
 
   override fun write(buffer: FriendlyByteBuf) {
@@ -44,6 +47,7 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
     buffer.writeByteArray(discName!!.toByteArray())
     buffer.writeLong(discRadius.toLong())
     buffer.writeBoolean(locked)
+    buffer.writeFloat(pitch)
   }
 
   override fun handle(context: NetworkEvent.Context): Boolean {
@@ -96,16 +100,22 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
         stackInHand.orCreateTag.putString(URLDiscItem.NAME_TAG_KEY, discName)
         stackInHand.orCreateTag.putInt(URLDiscItem.RADIUS_TAG_KEY, discRadius)
         stackInHand.orCreateTag.putBoolean(URLDiscItem.LOCKED_TAG_KEY, locked)
+        if(locked) stackInHand.orCreateTag.putString(URLDiscItem.OWNER_TAG_KEY, player.gameProfile.name)
 
         // just set a random texture if the disc is not locked or has the initial texture
         val texture = stackInHand.orCreateTag.getInt(URLDiscItem.TEXTURE_TAG_KEY)
         if(!locked  || texture == 0) stackInHand.orCreateTag.putInt(URLDiscItem.TEXTURE_TAG_KEY, DiscVariant.random().toInt())
+
+        // check the url parameters for the pitch easteregg
+        val urlPitch = YoutubeUtils.getPitchFromUrl(discUrl!!) ?: pitch
+        stackInHand.orCreateTag.putFloat(URLDiscItem.PITCH_TAG_KEY, urlPitch)
 
         if(!discName.isNullOrEmpty()){
           stackInHand.setHoverName(Component.literal(discName))
         }
         player.setItemInHand(player.swingingArm, stackInHand)
         player.displayClientMessage(Component.translatable(MusicDiscScreen.DISC_SAVED_TRANSLATION_KEY), true)
+        MusicBoxModule.LOGGER.info("Saved disc details to item, $discName, $discUrl, $discDuration, $discRadius, $locked, $urlPitch")
       } else {
         MusicBoxModule.LOGGER.error("Player was null when trying to save disc details")
       }

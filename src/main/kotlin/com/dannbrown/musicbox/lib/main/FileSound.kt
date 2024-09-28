@@ -10,7 +10,7 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.sounds.SoundSource
 import net.minecraft.util.valueproviders.ConstantFloat
 
-class FileSound(private val fileName: String, private val position: BlockPos, private val radius: Int) : SoundInstance {
+class FileSound(private val fileName: String, private val position: BlockPos, private val radius: Int, private val pitch: Float = 1.0f) : SoundInstance {
   override fun getLocation(): ResourceLocation {
     return ResourceLocation(MusicBoxModule.MOD_ID, "customsound/$fileName")
   }
@@ -44,7 +44,7 @@ class FileSound(private val fileName: String, private val position: BlockPos, pr
   }
 
   override fun getPitch(): Float {
-    return 1.0f
+    return pitch
   }
 
   override fun getX(): Double {

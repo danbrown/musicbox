@@ -23,4 +23,20 @@ object YoutubeUtils {
     }
     return url // If no match, return the original URL
   }
+
+  fun getPitchFromUrl(url: String): Float? {
+    // look for pitch= in the url, the value should be a float
+    // if not found, can't be lower than 0.5f or higher than 2.0f
+    val pitchRegex = Pattern.compile("pitch=([0-9]*\\.?[0-9]+)")
+    val matcher = pitchRegex.matcher(url)
+    if (matcher.find()) {
+      val pitch = matcher.group(1).toFloat()
+      return when {
+        pitch > 2.0f -> 2.0f
+        pitch < 0.5f -> 0.5f
+        else -> pitch
+      }
+    }
+    return null
+  }
 }

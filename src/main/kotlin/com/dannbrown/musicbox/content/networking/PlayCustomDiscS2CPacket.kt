@@ -17,23 +17,27 @@ class PlayCustomDiscS2CPacket : NetworkPacketBase {
   private var blockPos: BlockPos? = null
   private var discUrl: String? = null
   private var discRadius: Int = 0
+  private var pitch: Float = 1.0f
 
   constructor()
   constructor (buffer: FriendlyByteBuf) : this(){
     blockPos = buffer.readBlockPos()
     discUrl = buffer.readUtf(32767)
     discRadius = buffer.readInt()
+    pitch = buffer.readFloat()
   }
-  constructor(blockPos: BlockPos, discUrl: String, discRadius: Int) : this() {
+  constructor(blockPos: BlockPos, discUrl: String, discRadius: Int, pitch: Float = 1.0f) : this() {
     this.blockPos = blockPos
     this.discUrl = discUrl
     this.discRadius = discRadius
+    this.pitch = pitch
   }
 
   override fun write(buffer: FriendlyByteBuf) {
     blockPos?.let { buffer.writeBlockPos(it) }
     buffer.writeUtf(discUrl!!)
     buffer.writeInt(discRadius)
+    buffer.writeFloat(pitch)
   }
 
   override fun handle(context: NetworkEvent.Context): Boolean {
@@ -61,6 +65,7 @@ class PlayCustomDiscS2CPacket : NetworkPacketBase {
       if (currentSound != null) {
         MusicBoxModule.LOGGER.info("Stopping current sound in $blockPos")
         client.soundManager.stop(currentSound)
+        MusicBoxModule.playingSounds.remove(blockPos)
       }
 
       // if no disc url is provided, stop the sound and return
@@ -86,10 +91,10 @@ class PlayCustomDiscS2CPacket : NetworkPacketBase {
             client.player!!.sendSystemMessage(Component.translatable(MusicDiscScreen.DOWNLOADING_SUCCESS_DISC_TRANSLATION_KEY))
             // Only play if there is no currently playing sound
             if (MusicBoxModule.playingSounds[blockPos] == null) {
-              val newFileSound = FileSound(fileName, blockPos!!, discRadius)
+              val newFileSound = FileSound(fileName, blockPos!!, discRadius, pitch)
               MusicBoxModule.playingSounds[blockPos!!] = newFileSound
               client.soundManager.play(newFileSound)
-              MusicBoxModule.LOGGER.info("Playing sound $fileName in $blockPos")
+              MusicBoxModule.LOGGER.info("Playing sound $fileName in $blockPos, radius $discRadius, pitch $pitch")
             } else {
               MusicBoxModule.LOGGER.warn("Sound already playing at $blockPos, not playing the new sound.")
             }
@@ -99,10 +104,10 @@ class PlayCustomDiscS2CPacket : NetworkPacketBase {
         }
       } else {
         MusicBoxModule.ongoingDownloads.remove(blockPos!!) // No need to track if the file already exists
-        val newFileSound = FileSound(fileName, blockPos!!, discRadius)
+        val newFileSound = FileSound(fileName, blockPos!!, discRadius, pitch)
         MusicBoxModule.playingSounds[blockPos!!] = newFileSound
         client.soundManager.play(newFileSound)
-        MusicBoxModule.LOGGER.info("Playing sound $fileName in $blockPos")
+        MusicBoxModule.LOGGER.info("Playing sound $fileName in $blockPos, radius $discRadius, pitch $pitch")
       }
     }
     return true

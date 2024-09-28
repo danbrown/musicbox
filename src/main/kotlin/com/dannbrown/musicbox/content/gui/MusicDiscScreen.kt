@@ -113,7 +113,8 @@ class MusicDiscScreen(menu: MusicDiscMenu, private val inv: Inventory) : Abstrac
         duration,
         this.SONG_NAME_FIELD!!.value,
         radius,
-        pKeyCode == GLFW.GLFW_KEY_ENTER
+        pKeyCode == GLFW.GLFW_KEY_ENTER,
+        if(menu.stack?.tag?.getFloat(URLDiscItem.PITCH_TAG_KEY) == 0.0f) 1.0f else menu.stack?.tag?.getFloat(URLDiscItem.PITCH_TAG_KEY)!!,
       ))
       this.minecraft!!.setScreen(null)
     }
