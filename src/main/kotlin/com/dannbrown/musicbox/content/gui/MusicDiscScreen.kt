@@ -33,6 +33,11 @@ class MusicDiscScreen(menu: MusicDiscMenu, private val inv: Inventory) : Abstrac
     const val SONG_NAME_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.song_name"
     const val RADIUS_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.radius"
     const val YOUTUBE_URL_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.youtube_url"
+
+    const val URL_FIELD_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.url.field"
+    const val DURATION_FIELD_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.duration.field"
+    const val SONG_NAME_FIELD_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.song_name.field"
+    const val RADIUS_FIELD_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.radius.field"
   }
 
   private val TEXTURE = ResourceLocation(MusicBoxModule.MOD_ID, "textures/gui/record_input.png")
@@ -152,10 +157,10 @@ class MusicDiscScreen(menu: MusicDiscMenu, private val inv: Inventory) : Abstrac
     this.SONG_NAME_FIELD?.render(guiGraphics, mouseX, mouseY, delta)
     this.RADIUS_FIELD?.render(guiGraphics, mouseX, mouseY, delta)
 
-    guiGraphics.drawString(font, "URL:", TEXT_FIELD!!.x - 54, TEXT_FIELD!!.y, 0x555555)
-    guiGraphics.drawString(font, "Duration:", TEXT_FIELD!!.x - 54, DURATION_FIELD!!.y, 0x555555)
-    guiGraphics.drawString(font, "Name:", TEXT_FIELD!!.x - 54, SONG_NAME_FIELD!!.y, 0x555555)
-    guiGraphics.drawString(font, "Radius:", TEXT_FIELD!!.x - 54, RADIUS_FIELD!!.y, 0x555555)
+    guiGraphics.drawString(font, Component.translatable(URL_FIELD_KEY), TEXT_FIELD!!.x - 54, TEXT_FIELD!!.y, 0x555555)
+    guiGraphics.drawString(font, Component.translatable(DURATION_FIELD_KEY), TEXT_FIELD!!.x - 54, DURATION_FIELD!!.y, 0x555555)
+    guiGraphics.drawString(font, Component.translatable(SONG_NAME_FIELD_KEY), TEXT_FIELD!!.x - 54, SONG_NAME_FIELD!!.y, 0x555555)
+    guiGraphics.drawString(font, Component.translatable(RADIUS_FIELD_KEY), TEXT_FIELD!!.x - 54, RADIUS_FIELD!!.y, 0x555555)
 
     if(TEXT_FIELD?.value.isNullOrEmpty()) {
       guiGraphics.drawString(font, "Youtube URL", TEXT_FIELD!!.x, TEXT_FIELD!!.y, 0xAAAAAA)

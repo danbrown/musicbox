@@ -34,5 +34,11 @@ object MusicBoxLangGen {
     MusicBoxModule.REGISTRATE.addRawLang(MusicBoxCommands.DOWNLOADING_SONG_ERROR, "Downloading song %s failed")
     MusicBoxModule.REGISTRATE.addRawLang(MusicBoxCommands.DOWNLOADING_SONG_SUCCESS, "Downloading song %s succeeded")
     MusicBoxModule.REGISTRATE.addRawLang(MusicBoxCommands.PLAYING_SONG, "Playing song for %s")
+
+    // Fields
+    MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.URL_FIELD_KEY, "URL:")
+    MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.DURATION_FIELD_KEY, "Duration:")
+    MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.SONG_NAME_FIELD_KEY, "Name:")
+    MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.RADIUS_FIELD_KEY, "Radius:")
   }
 }
