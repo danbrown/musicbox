@@ -69,20 +69,36 @@ class PlayCustomDiscS2CPacket : NetworkPacketBase {
         return@enqueueWork
       }
 
+      // Check if a download is already happening at this BlockPos
+      if (MusicBoxModule.ongoingDownloads[blockPos] == true) {
+        MusicBoxModule.LOGGER.warn("Download already in progress for $blockPos, allowing new download but will not play.")
+      } else {
+        // Mark the download as in progress
+        MusicBoxModule.ongoingDownloads[blockPos!!] = true
+      }
+
       if(!ClientAudioManager.fileNameToFile(fileNameWithExtension)!!.exists() && client.player != null) {
         client.player!!.sendSystemMessage(Component.translatable(MusicDiscScreen.DOWNLOADING_DISC_TRANSLATION_KEY))
         ClientAudioManager.downloadAudio(discUrl!!, fileName).thenAccept { result ->
+          // After download finishes, check if this BlockPos still wants to play the sound
+          MusicBoxModule.ongoingDownloads.remove(blockPos!!)
           if(result){
             client.player!!.sendSystemMessage(Component.translatable(MusicDiscScreen.DOWNLOADING_SUCCESS_DISC_TRANSLATION_KEY))
-            val newFileSound = FileSound(fileName, blockPos!!, discRadius)
-            MusicBoxModule.playingSounds[blockPos!!] = newFileSound
-            client.soundManager.play(newFileSound)
-            MusicBoxModule.LOGGER.info("Playing sound $fileName in $blockPos")
+            // Only play if there is no currently playing sound
+            if (MusicBoxModule.playingSounds[blockPos] == null) {
+              val newFileSound = FileSound(fileName, blockPos!!, discRadius)
+              MusicBoxModule.playingSounds[blockPos!!] = newFileSound
+              client.soundManager.play(newFileSound)
+              MusicBoxModule.LOGGER.info("Playing sound $fileName in $blockPos")
+            } else {
+              MusicBoxModule.LOGGER.warn("Sound already playing at $blockPos, not playing the new sound.")
+            }
           } else {
             client.player!!.sendSystemMessage(Component.translatable(MusicDiscScreen.DOWNLOADING_ERROR_DISC_TRANSLATION_KEY))
           }
         }
       } else {
+        MusicBoxModule.ongoingDownloads.remove(blockPos!!) // No need to track if the file already exists
         val newFileSound = FileSound(fileName, blockPos!!, discRadius)
         MusicBoxModule.playingSounds[blockPos!!] = newFileSound
         client.soundManager.play(newFileSound)

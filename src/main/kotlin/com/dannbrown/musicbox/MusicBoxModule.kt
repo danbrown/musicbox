@@ -35,6 +35,7 @@ class MusicBoxModule {
     val REGISTRATE = DeltaboxRegistrate(MOD_ID)
 
     var playingSounds = mutableMapOf<BlockPos, FileSound>()
+    var ongoingDownloads = mutableMapOf<BlockPos, Boolean>()
 
     // mod compatibility
     fun register(modBus: IEventBus, forgeEventBus: IEventBus) {
