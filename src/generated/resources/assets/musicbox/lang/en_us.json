@@ -8,7 +8,7 @@
   "gui.musicbox.custom_record.downloading_error": "Failed to download music!",
   "gui.musicbox.custom_record.downloading_success": "Download complete!",
   "gui.musicbox.custom_record.duration": "Duration (In Seconds)",
-  "gui.musicbox.custom_record.locked": "This disc is locked!",
+  "gui.musicbox.custom_record.locked": "This disc is signed!",
   "gui.musicbox.custom_record.no_record": "No custom record found!",
   "gui.musicbox.custom_record.radius": "Radius",
   "gui.musicbox.custom_record.radius_too_small": "Radius is too small!",
