@@ -1,6 +1,7 @@
 package com.dannbrown.musicbox
 
 import com.dannbrown.deltaboxlib.registry.generators.ItemGen
+import com.dannbrown.musicbox.content.items.DiscVariant
 import com.dannbrown.musicbox.content.items.URLDiscItem
 import net.minecraft.client.multiplayer.ClientLevel
 import net.minecraft.client.renderer.item.ItemProperties
@@ -23,7 +24,7 @@ object MusicBoxItems {
     .tag(ItemTags.MUSIC_DISCS)
     .model { c, p ->
       val model = p.withExistingParent(c.name, p.mcLoc("item/generated")).texture("layer0", p.modLoc("item/custom_record"))
-      for(i in 0 until URLDiscItem.DiscVariant.maxVariants() + 1){
+      for(i in 0 until DiscVariant.maxVariants() + 1){
         model.override()
           .model(
             p.withExistingParent("custom_record_${i}", p.mcLoc("item/generated"))

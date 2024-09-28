@@ -4,6 +4,7 @@ import com.dannbrown.deltaboxlib.content.networking.NetworkPacketBase
 import com.dannbrown.musicbox.MusicBoxItems
 import com.dannbrown.musicbox.MusicBoxModule
 import com.dannbrown.musicbox.content.gui.MusicDiscScreen
+import com.dannbrown.musicbox.content.items.DiscVariant
 import com.dannbrown.musicbox.content.items.URLDiscItem
 import com.dannbrown.musicbox.lib.main.YoutubeUtils
 import net.minecraft.network.FriendlyByteBuf
@@ -96,8 +97,9 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
         stackInHand.orCreateTag.putInt(URLDiscItem.RADIUS_TAG_KEY, discRadius)
         stackInHand.orCreateTag.putBoolean(URLDiscItem.LOCKED_TAG_KEY, locked)
 
-        // just set a random texture if the disc is not locked
-        if(!locked) stackInHand.orCreateTag.putInt(URLDiscItem.TEXTURE_TAG_KEY, URLDiscItem.DiscVariant.random().toInt())
+        // just set a random texture if the disc is not locked or has the initial texture
+        val texture = stackInHand.orCreateTag.getInt(URLDiscItem.TEXTURE_TAG_KEY)
+        if(!locked  || texture == 0) stackInHand.orCreateTag.putInt(URLDiscItem.TEXTURE_TAG_KEY, DiscVariant.random().toInt())
 
         if(!discName.isNullOrEmpty()){
           stackInHand.setHoverName(Component.literal(discName))

@@ -1,5 +1,6 @@
 package com.dannbrown.musicbox.datagen.loot
 
+import com.dannbrown.musicbox.content.items.DiscVariant
 import com.dannbrown.musicbox.content.items.URLDiscItem
 import com.google.common.base.Suppliers
 import com.mojang.serialization.Codec
@@ -40,7 +41,7 @@ class AddDiscModifier(conditionsIn: Array<LootItemCondition>, private val item: 
           .and(Codec.INT.fieldOf("duration").forGetter { m: AddDiscModifier -> m.item.orCreateTag.getInt(URLDiscItem.DURATION_TAG_KEY) })
           .apply(inst
           ) { conditionsIn: Array<LootItemCondition>, url: String, name: String, variant: Int, radius: Int, duration: Int ->
-            AddDiscModifier(conditionsIn, URLDiscItem.createDiscItem(url, duration, name, URLDiscItem.DiscVariant.fromInt(variant), radius, true))
+            AddDiscModifier(conditionsIn, URLDiscItem.createDiscItem(url, duration, name, DiscVariant.fromInt(variant), radius, true))
           }
       }
     }

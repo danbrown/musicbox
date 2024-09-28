@@ -100,13 +100,12 @@ class MusicDiscScreen(menu: MusicDiscMenu, private val inv: Inventory) : Abstrac
     this.RADIUS_FIELD!!.setBordered(false)
     this.RADIUS_FIELD!!.setMaxLength(3)
     this.RADIUS_FIELD!!.setFilter { radiusNumberFilter(it) }
-    this.RADIUS_FIELD!!.value = if(playerRadiusValue.isEmpty()) DEFAULT_RADIUS.toString() else playerRadiusValue
+    this.RADIUS_FIELD!!.value = if(playerRadiusValue.isEmpty() || playerRadiusValue.toInt() <= 0) DEFAULT_RADIUS.toString() else playerRadiusValue
     this.addRenderableWidget(this.RADIUS_FIELD!!)
   }
 
   override fun keyPressed(pKeyCode: Int, pScanCode: Int, pModifiers: Int): Boolean {
     if(pKeyCode == GLFW.GLFW_KEY_ESCAPE || pKeyCode == GLFW.GLFW_KEY_ENTER) {
-      // TODO: april fools
       val duration = if(this.DURATION_FIELD!!.value.isNullOrEmpty()) 0 else this.DURATION_FIELD!!.value.toInt()
       val radius = if(this.RADIUS_FIELD!!.value.isNullOrEmpty()) 0 else this.RADIUS_FIELD!!.value.toInt()
       MusicBoxNetworking.sendToServer(SaveDiscUrlC2SPacket(

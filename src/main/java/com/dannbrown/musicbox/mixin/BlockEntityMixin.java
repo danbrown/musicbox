@@ -14,4 +14,8 @@ public class BlockEntityMixin {
   @Final
   @Shadow
   protected BlockPos worldPosition;
+  @Shadow
+  public boolean hasLevel() {
+    return this.level != null;
+  }
 }

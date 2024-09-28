@@ -19,5 +19,4 @@ class MusicDiscMenu(containerId: Int) : AbstractContainerMenu(MusicBoxScreens.MU
   override fun stillValid(player: Player): Boolean {
     return true
   }
-
 }
