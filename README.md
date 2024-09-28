@@ -16,25 +16,39 @@ It is a fork of the Fabric mod [URL Music Discs](https://modrinth.com/mod/url-mu
 ## Recipe
 
 <img src="https://cdn.modrinth.com/data/hKWZWeEG/images/14f3a83d9ab2ebfe830ccda5e3a88954233e6566.png" alt="Music Box Disc Recipe"/>
+
 <br/>
+
 # Features
 - Right click with a custom music disc to open the configuration screen.
 - Paste a YouTube link to play the music.
 - Set up the **Duration**, in seconds (optional) to make it redstone compatible.
 - Set a **Name** for the music disc.
 - You can also set a **Radius**, by default it is 30 blocks. (Maximum 999 blocks)
+
 <br/>
+
 <img src="https://cdn.modrinth.com/data/hKWZWeEG/images/844bf6e44ad9b4e62ee493f66ee96aa5a0b935fa.png" alt="Music Box Setup Menu"/>
+
 <br/>
+
 After a disc is saved it can get a random texture out of 40 different variants!
 And more to be added in the future!
+
 <br/>
+
 <img src="https://cdn.modrinth.com/data/hKWZWeEG/images/f217bf6d2d99949563603d8dd1d8eaf8efcebca1.png" alt="Music Box Disc Variants"/>
+
 <br/>
+
 Saving the disc by pressing *esc* will maintain it editable, but if you save it with *enter* it will be locked and signed by you, and can't be edited anymore. 
+
 <br/>
+
 <img src="https://cdn.modrinth.com/data/hKWZWeEG/images/1f20ba66e9e69ba52448c8840053bbb1dea240ff.png" alt="Music Box locked disc"/>
+
 <br/>
+
 If you have a locked disc you want to recycle, you can always use it to craft a fresh new one!
 
 **Secret Features**
@@ -56,7 +70,6 @@ The mod is still in development, as of now it only works with YouTube links, but
 New disc variants textures are always welcome if you have new ideas!
 
 **What about a Fabric version?** I'm not planning to make a Fabric version of this mod, but you can use the original mod [URL Music Discs](https://modrinth.com/mod/url-music-discs) that is available for Fabric.
-
 
 
 # Credits
