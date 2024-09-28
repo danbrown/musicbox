@@ -60,7 +60,8 @@ class URLDiscItem(comparatorOutput: Int, sound: SoundEvent, props: Properties) :
     pTooltip.add(Component.translatable(CUSTOM_DISC_TRANSLATION_KEY).withStyle(ChatFormatting.GRAY))
     if (pStack.hasTag()) {
       val owner = pStack.tag?.getString(OWNER_TAG_KEY)
-      if (!StringUtil.isNullOrEmpty(owner)) {
+      val locked = pStack.tag?.getBoolean(LOCKED_TAG_KEY) ?: false
+      if (!StringUtil.isNullOrEmpty(owner) && locked) {
         pTooltip.add(Component.translatable("book.byAuthor", owner).withStyle(ChatFormatting.GRAY))
       }
     }
