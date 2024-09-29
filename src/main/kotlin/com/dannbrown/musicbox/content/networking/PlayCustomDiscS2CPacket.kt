@@ -82,6 +82,8 @@ class PlayCustomDiscS2CPacket : NetworkPacketBase {
         MusicBoxModule.ongoingDownloads[blockPos!!] = true
       }
 
+      pitch = if(pitch <= 0) 1.0f else if (pitch >= 2.0) 2.0f else pitch
+
       if(!ClientAudioManager.fileNameToFile(fileNameWithExtension)!!.exists() && client.player != null) {
         client.player!!.sendSystemMessage(Component.translatable(MusicDiscScreen.DOWNLOADING_DISC_TRANSLATION_KEY))
         ClientAudioManager.downloadAudio(discUrl!!, fileName).thenAccept { result ->
