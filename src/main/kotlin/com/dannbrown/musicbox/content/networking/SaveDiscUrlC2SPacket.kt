@@ -6,6 +6,7 @@ import com.dannbrown.musicbox.MusicBoxModule
 import com.dannbrown.musicbox.content.gui.MusicDiscScreen
 import com.dannbrown.musicbox.content.items.DiscVariant
 import com.dannbrown.musicbox.content.items.URLDiscItem
+import com.dannbrown.musicbox.init.ModCommonConfig
 import com.dannbrown.musicbox.lib.main.YoutubeUtils
 import net.minecraft.network.FriendlyByteBuf
 import net.minecraft.network.chat.Component
@@ -89,8 +90,13 @@ class SaveDiscUrlC2SPacket : NetworkPacketBase {
         }
 
         // check if radius bigger than 0
+        val maxRadius = ModCommonConfig.MAX_DISC_RADIUS?.get()?: 999
         if(discRadius <= 0) {
           player.displayClientMessage(Component.translatable(MusicDiscScreen.RADIUS_TOO_SMALL_TRANSLATION_KEY), true)
+          return@enqueueWork
+        }
+        if (discRadius > maxRadius) {
+          player.displayClientMessage(Component.translatable(MusicDiscScreen.RADIUS_TOO_BIG_TRANSLATION_KEY, maxRadius), true)
           return@enqueueWork
         }
 

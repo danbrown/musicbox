@@ -11,4 +11,4 @@ plugins {
 }
 
 include ":deltaboxlib"
-project(":deltaboxlib").projectDir = new File(settingsDir, "../deltaboxlib")
+project(":deltaboxlib").projectDir = new File(settingsDir, "../deltaboxlib_old")

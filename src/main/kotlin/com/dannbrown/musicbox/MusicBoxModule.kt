@@ -3,6 +3,7 @@ package com.dannbrown.musicbox
 import com.dannbrown.deltaboxlib.registry.DeltaboxRegistrate
 import com.dannbrown.musicbox.content.gui.MusicDiscScreen
 import com.dannbrown.musicbox.datagen.MusicBoxDatagen
+import com.dannbrown.musicbox.init.ModCommonConfig
 import com.dannbrown.musicbox.init.MusicBoxCommands
 import com.dannbrown.musicbox.init.MusicBoxCreativeTabs
 import com.dannbrown.musicbox.init.MusicBoxLootModifiers
@@ -17,7 +18,9 @@ import net.minecraftforge.data.event.GatherDataEvent
 import net.minecraftforge.event.RegisterCommandsEvent
 import net.minecraftforge.eventbus.api.EventPriority
 import net.minecraftforge.eventbus.api.IEventBus
+import net.minecraftforge.fml.ModLoadingContext
 import net.minecraftforge.fml.common.Mod
+import net.minecraftforge.fml.config.ModConfig
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext
@@ -40,6 +43,8 @@ class MusicBoxModule {
     // mod compatibility
     fun register(modBus: IEventBus, forgeEventBus: IEventBus) {
       LOGGER.info("$MOD_ID has started!")
+      ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ModCommonConfig.SPEC, "$MOD_ID-common.toml")
+
       MusicBoxCreativeTabs.register(modBus)
       MusicBoxItems.register(modBus)
       MusicBoxScreens.register(modBus)

@@ -13,6 +13,7 @@
   "gui.musicbox.custom_record.no_record": "¡punoɟ pɹoɔǝɹ ɯoʇsnɔ oN",
   "gui.musicbox.custom_record.radius": "snıpɐᴚ",
   "gui.musicbox.custom_record.radius.field": ":snıpɐᴚ",
+  "gui.musicbox.custom_record.radius_too_big": "%s sı xɐW ¡bıq ooʇ sı snıpɐᴚ",
   "gui.musicbox.custom_record.radius_too_small": "¡ןןɐɯs ooʇ sı snıpɐᴚ",
   "gui.musicbox.custom_record.song_name": "ǝɯɐN buoS",
   "gui.musicbox.custom_record.song_name.field": ":ǝɯɐN",

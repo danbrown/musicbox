@@ -23,6 +23,7 @@ object MusicBoxLangGen {
     MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.URL_INVALID_TRANSLATION_KEY, "Song URL is invalid!")
     MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.URL_TOO_LONG_TRANSLATION_KEY, "Song URL is too long!")
     MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.RADIUS_TOO_SMALL_TRANSLATION_KEY, "Radius is too small!")
+    MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.RADIUS_TOO_BIG_TRANSLATION_KEY, "Radius is too big! Max is %s")
     MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.DISC_SAVED_TRANSLATION_KEY, "Song Details saved!")
     MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.YOUTUBE_URL_TRANSLATION_KEY, "Youtube URL")
     MusicBoxModule.REGISTRATE.addRawLang(MusicDiscScreen.DURATION_TRANSLATION_KEY, "Duration (In Seconds)")

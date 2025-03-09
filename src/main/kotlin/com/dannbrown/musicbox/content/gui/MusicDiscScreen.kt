@@ -27,6 +27,7 @@ class MusicDiscScreen(menu: MusicDiscMenu, private val inv: Inventory) : Abstrac
     const val YOUTUBE_INVALID_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.youtube_invalid"
     const val URL_TOO_LONG_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.url_too_long"
     const val RADIUS_TOO_SMALL_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.radius_too_small"
+    const val RADIUS_TOO_BIG_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.radius_too_big"
     const val DISC_SAVED_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.disc_saved"
 
     const val DURATION_TRANSLATION_KEY = "gui.${MusicBoxModule.MOD_ID}.custom_record.duration"

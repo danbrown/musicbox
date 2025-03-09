@@ -13,6 +13,7 @@
   "gui.musicbox.custom_record.no_record": "No custom record found!",
   "gui.musicbox.custom_record.radius": "Radius",
   "gui.musicbox.custom_record.radius.field": "Radius:",
+  "gui.musicbox.custom_record.radius_too_big": "Radius is too big! Max is %s",
   "gui.musicbox.custom_record.radius_too_small": "Radius is too small!",
   "gui.musicbox.custom_record.song_name": "Song Name",
   "gui.musicbox.custom_record.song_name.field": "Name:",
