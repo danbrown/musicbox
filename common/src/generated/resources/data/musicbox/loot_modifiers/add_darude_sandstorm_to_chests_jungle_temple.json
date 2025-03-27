@@ -1,0 +1,9 @@
+{
+  "chance": 0.5,
+  "duration": 232,
+  "loot_table_id": "minecraft:chests/jungle_temple",
+  "name": "Darude - Sandstorm",
+  "radius": 30,
+  "url": "https://www.youtube.com/watch?v=y6120QOlsfU",
+  "variant": 28
+}

@@ -8,7 +8,6 @@ import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
 import net.fabricmc.api.ModInitializer
-import net.fabricmc.fabric.api.`object`.builder.v1.client.model.FabricModelPredicateProviderRegistry
 
 object ModContentFabric : ModInitializer, ClientModInitializer {
   val registrateInit = RegistrateInitFabric(ModContent.REGISTRATE)
@@ -25,6 +24,5 @@ object ModContentFabric : ModInitializer, ClientModInitializer {
     ModContent.initClient()
     registrateInit.initClient()
     ModItemPredicates.init()
-    FabricModelPredicateProviderRegistry.
   }
 }
