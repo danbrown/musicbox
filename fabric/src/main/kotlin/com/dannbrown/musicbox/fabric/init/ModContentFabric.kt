@@ -8,6 +8,7 @@ import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.`object`.builder.v1.client.model.FabricModelPredicateProviderRegistry
 
 object ModContentFabric : ModInitializer, ClientModInitializer {
   val registrateInit = RegistrateInitFabric(ModContent.REGISTRATE)
@@ -23,6 +24,7 @@ object ModContentFabric : ModInitializer, ClientModInitializer {
   override fun onInitializeClient() {
     ModContent.initClient()
     registrateInit.initClient()
-    ModItemPredicates.register()
+    ModItemPredicates.init()
+    FabricModelPredicateProviderRegistry.
   }
 }

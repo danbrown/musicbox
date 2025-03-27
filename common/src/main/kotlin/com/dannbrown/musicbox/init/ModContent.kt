@@ -51,6 +51,7 @@ object ModContent {
     o.accept(MusicBoxDiscs.ARBEET)
     o.accept(MusicBoxDiscs.SHADOMAL1)
     o.accept(MusicBoxDiscs.SHADOMAL2)
+    o.accept(MusicBoxDiscs.BLACKOLE)
   })
 
   fun init() {

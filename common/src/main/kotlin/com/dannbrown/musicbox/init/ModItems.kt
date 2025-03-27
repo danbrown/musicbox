@@ -29,7 +29,7 @@ object ModItems {
           val jsonArray = JsonArray()
 
           for (i in 0 until DiscVariant.maxVariants() + 1) {
-            val variantNumber = String.format("%.2f", 1.0 + (i.toDouble() / 100)).toDouble()
+            val variantNumber = String.format("%.2f", (i.toDouble() / 100)).toDouble()
             val jsonObject2 = JsonObject()
             val jsonObject3 = JsonObject()
             jsonObject3.addProperty(

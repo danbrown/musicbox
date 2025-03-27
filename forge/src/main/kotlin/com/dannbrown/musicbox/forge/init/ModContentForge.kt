@@ -1,8 +1,8 @@
 package com.dannbrown.musicbox.forge.init
 
-
 import com.dannbrown.deltaboxlib.forge.registrate.RegistrateInitForge
 import com.dannbrown.musicbox.init.ModContent
+import com.dannbrown.musicbox.init.ModItemPredicates
 import dev.architectury.platform.forge.EventBuses
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.eventbus.api.IEventBus
@@ -57,5 +57,6 @@ object ModContentForge {
 
   private fun clientSetup(event: FMLClientSetupEvent) {
     registrateInit.clientSetup()
+    ModItemPredicates.init()
   }
 }
