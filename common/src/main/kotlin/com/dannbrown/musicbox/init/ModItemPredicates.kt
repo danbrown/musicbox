@@ -4,7 +4,6 @@ import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
 import com.dannbrown.musicbox.content.items.URLDiscItem
 import dev.architectury.registry.item.ItemPropertiesRegistry
 import net.minecraft.client.multiplayer.ClientLevel
-import net.minecraft.client.renderer.item.ItemProperties
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.item.ItemStack
 
