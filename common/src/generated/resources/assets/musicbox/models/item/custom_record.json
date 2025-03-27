@@ -1,5 +1,253 @@
 {
   "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "musicbox:item/custom_record_0",
+      "predicate": {
+        "musicbox:disc_variant": 1.0
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_1",
+      "predicate": {
+        "musicbox:disc_variant": 1.01
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_2",
+      "predicate": {
+        "musicbox:disc_variant": 1.02
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_3",
+      "predicate": {
+        "musicbox:disc_variant": 1.03
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_4",
+      "predicate": {
+        "musicbox:disc_variant": 1.04
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_5",
+      "predicate": {
+        "musicbox:disc_variant": 1.05
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_6",
+      "predicate": {
+        "musicbox:disc_variant": 1.06
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_7",
+      "predicate": {
+        "musicbox:disc_variant": 1.07
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_8",
+      "predicate": {
+        "musicbox:disc_variant": 1.08
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_9",
+      "predicate": {
+        "musicbox:disc_variant": 1.09
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_10",
+      "predicate": {
+        "musicbox:disc_variant": 1.1
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_11",
+      "predicate": {
+        "musicbox:disc_variant": 1.11
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_12",
+      "predicate": {
+        "musicbox:disc_variant": 1.12
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_13",
+      "predicate": {
+        "musicbox:disc_variant": 1.13
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_14",
+      "predicate": {
+        "musicbox:disc_variant": 1.14
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_15",
+      "predicate": {
+        "musicbox:disc_variant": 1.15
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_16",
+      "predicate": {
+        "musicbox:disc_variant": 1.16
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_17",
+      "predicate": {
+        "musicbox:disc_variant": 1.17
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_18",
+      "predicate": {
+        "musicbox:disc_variant": 1.18
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_19",
+      "predicate": {
+        "musicbox:disc_variant": 1.19
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_20",
+      "predicate": {
+        "musicbox:disc_variant": 1.2
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_21",
+      "predicate": {
+        "musicbox:disc_variant": 1.21
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_22",
+      "predicate": {
+        "musicbox:disc_variant": 1.22
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_23",
+      "predicate": {
+        "musicbox:disc_variant": 1.23
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_24",
+      "predicate": {
+        "musicbox:disc_variant": 1.24
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_25",
+      "predicate": {
+        "musicbox:disc_variant": 1.25
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_26",
+      "predicate": {
+        "musicbox:disc_variant": 1.26
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_27",
+      "predicate": {
+        "musicbox:disc_variant": 1.27
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_28",
+      "predicate": {
+        "musicbox:disc_variant": 1.28
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_29",
+      "predicate": {
+        "musicbox:disc_variant": 1.29
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_30",
+      "predicate": {
+        "musicbox:disc_variant": 1.3
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_31",
+      "predicate": {
+        "musicbox:disc_variant": 1.31
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_32",
+      "predicate": {
+        "musicbox:disc_variant": 1.32
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_33",
+      "predicate": {
+        "musicbox:disc_variant": 1.33
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_34",
+      "predicate": {
+        "musicbox:disc_variant": 1.34
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_35",
+      "predicate": {
+        "musicbox:disc_variant": 1.35
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_36",
+      "predicate": {
+        "musicbox:disc_variant": 1.36
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_37",
+      "predicate": {
+        "musicbox:disc_variant": 1.37
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_38",
+      "predicate": {
+        "musicbox:disc_variant": 1.38
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_39",
+      "predicate": {
+        "musicbox:disc_variant": 1.39
+      }
+    },
+    {
+      "model": "musicbox:item/custom_record_40",
+      "predicate": {
+        "musicbox:disc_variant": 1.4
+      }
+    }
+  ],
   "textures": {
     "layer0": "musicbox:item/custom_record"
   }

@@ -1,11 +1,14 @@
 package com.dannbrown.musicbox.content.items
 
+import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
 import com.dannbrown.musicbox.content.gui.MusicDiscScreen
 import com.dannbrown.musicbox.content.networking.OpenDiscScreenS2CPacket
 import com.dannbrown.musicbox.init.ModContent
 import com.dannbrown.musicbox.init.ModItems
 import com.dannbrown.musicbox.init.ModNetwork
 import net.minecraft.ChatFormatting
+import net.minecraft.client.multiplayer.ClientLevel
+import net.minecraft.client.renderer.item.ItemProperties
 import net.minecraft.network.chat.Component
 import net.minecraft.network.chat.MutableComponent
 import net.minecraft.server.level.ServerPlayer
@@ -13,6 +16,7 @@ import net.minecraft.sounds.SoundEvent
 import net.minecraft.util.StringUtil
 import net.minecraft.world.InteractionHand
 import net.minecraft.world.InteractionResultHolder
+import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.RecordItem
