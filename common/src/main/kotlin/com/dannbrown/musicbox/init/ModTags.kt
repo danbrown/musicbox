@@ -1,7 +1,7 @@
-package com.dannbrown.braziliandelight.init
+package com.dannbrown.musicbox.init
 
 
-import com.dannbrown.braziliandelight.init.ModContent.REGISTRATE
+import com.dannbrown.musicbox.init.ModContent.REGISTRATE
 
 object ModTags {
 

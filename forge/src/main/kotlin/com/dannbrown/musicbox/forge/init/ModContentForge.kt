@@ -1,8 +1,8 @@
-package com.dannbrown.braziliandelight.forge.init
+package com.dannbrown.musicbox.forge.init
 
 
 import com.dannbrown.deltaboxlib.forge.registrate.RegistrateInitForge
-import com.dannbrown.braziliandelight.init.ModContent
+import com.dannbrown.musicbox.init.ModContent
 import dev.architectury.platform.forge.EventBuses
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.eventbus.api.IEventBus
@@ -45,6 +45,7 @@ object ModContentForge {
   }
 
   private fun registerClient(modBus: IEventBus, forgeEventBus: IEventBus) {
+    ModContent.initClient()
     modBus.addListener(::clientSetup)
     modBus.addListener(registrateInit::onRegisterBlockBiomeColors)
     modBus.addListener(registrateInit::onRegisterItemBiomeColors)

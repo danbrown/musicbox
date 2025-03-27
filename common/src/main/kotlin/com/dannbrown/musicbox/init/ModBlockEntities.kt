@@ -1,4 +1,4 @@
-package com.dannbrown.braziliandelight.init
+package com.dannbrown.musicbox.init
 
 
 object ModBlockEntities {

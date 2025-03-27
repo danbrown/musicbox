@@ -1,7 +1,7 @@
-package com.dannbrown.braziliandelight.fabric.init
+package com.dannbrown.musicbox.fabric.init
 
 import com.dannbrown.deltaboxlib.fabric.registrate.RegistrateDatagenFabric
-import com.dannbrown.braziliandelight.init.ModContent
+import com.dannbrown.musicbox.init.ModContent
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
 import net.minecraft.core.RegistrySetBuilder

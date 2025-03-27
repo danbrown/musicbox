@@ -1,4 +1,4 @@
-package com.dannbrown.braziliandelight.content.presets
+package com.dannbrown.musicbox.content.presets
 
 object BlockstatePresets {
   

@@ -16,8 +16,8 @@ loom {
     convertAccessWideners.set(true)
     extraAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
 
-    mixinConfig("braziliandelight-common.mixins.json")
-    mixinConfig("braziliandelight.mixins.json")
+    mixinConfig("musicbox-common.mixins.json")
+    mixinConfig("musicbox.mixins.json")
   }
 }
 
@@ -98,7 +98,6 @@ tasks.processResources {
         "java_version_range" to project.property("java_version_range"),
         "deltaboxlib_version" to project.property("deltaboxlib_version"),
         "deltaboxlib_version_range" to project.property("deltaboxlib_version_range_forge"),
-        "terrablender_version_range" to project.property("terrablender_version_range_forge"),
 
         "mod_id" to project.property("mod_id"),
         "mod_name" to project.property("mod_name"),

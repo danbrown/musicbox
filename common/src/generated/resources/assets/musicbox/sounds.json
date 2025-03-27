@@ -1,0 +1,8 @@
+{
+  "placeholder_sound": {
+    "sounds": [
+      "musicbox:placeholder_sound_1"
+    ],
+    "subtitle": "sounds.musicbox.placeholder_sound"
+  }
+}

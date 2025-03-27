@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.dannbrown.braziliandelight.mixin.forge",
+  "package": "com.dannbrown.musicbox.mixin.forge",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [
