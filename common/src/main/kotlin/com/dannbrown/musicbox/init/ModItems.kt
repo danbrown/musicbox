@@ -1,6 +1,7 @@
 package com.dannbrown.musicbox.init
 
 import com.dannbrown.deltaboxlib.registrate.datagen.model.RegistrateModelTemplates
+import com.dannbrown.deltaboxlib.registrate.util.DataIngredient
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
 import com.dannbrown.musicbox.content.items.DiscVariant
 import com.dannbrown.musicbox.content.items.URLDiscItem
@@ -12,6 +13,9 @@ import net.minecraft.data.models.model.TextureMapping
 import net.minecraft.data.models.model.TextureSlot
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.tags.ItemTags
+import net.minecraft.world.item.Items
+import net.minecraft.world.level.block.Blocks
+import java.util.function.Supplier
 
 object ModItems {
 
@@ -19,6 +23,14 @@ object ModItems {
     REGISTRATE.item<URLDiscItem>("custom_record")
       .factory { p -> URLDiscItem(17, ModSounds.PLACEHOLDER_SOUND.get(), p.stacksTo(1)) }
       .itemTags(ItemTags.MUSIC_DISCS)
+      .recipe { c, p ->
+        c.simpleShapedRecipe(
+          { p.get() }, arrayOf(" G ", "GDG", " GF"), mapOf(
+            'G' to Supplier { DataIngredient(Blocks.REDSTONE_BLOCK) },
+            'D' to Supplier { DataIngredient(ItemTags.MUSIC_DISCS) },
+            'F' to Supplier { DataIngredient(Items.FEATHER) }
+          ), 1)
+      }
       .model { c, p ->
 
         fun generateDiscVariants(
