@@ -16,7 +16,7 @@ object ModItemPredicates {
       { itemStack: ItemStack, clientLevel: ClientLevel?, livingEntity: LivingEntity?, i: Int ->
         if (itemStack.item is URLDiscItem) {
           val itemTexture = itemStack.orCreateTag.getInt(URLDiscItem.TEXTURE_TAG_KEY) + 1
-          val variant = String.format("%.2f", (itemTexture.toDouble() / 100)).toFloat()
+          val variant = (itemTexture.toFloat() / 100)
           return@register variant
         }
         return@register 0f
