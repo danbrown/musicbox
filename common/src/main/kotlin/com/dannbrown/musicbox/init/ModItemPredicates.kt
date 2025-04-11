@@ -2,6 +2,7 @@ package com.dannbrown.musicbox.init
 
 import com.dannbrown.deltaboxlib.registrate.util.DeltaboxUtil
 import com.dannbrown.musicbox.content.items.URLDiscItem
+import dev.architectury.platform.Platform
 import dev.architectury.registry.item.ItemPropertiesRegistry
 import net.minecraft.client.multiplayer.ClientLevel
 import net.minecraft.world.entity.LivingEntity
@@ -14,7 +15,7 @@ object ModItemPredicates {
       DeltaboxUtil.resourceLocation(ModContent.MOD_ID, "disc_variant"),
       { itemStack: ItemStack, clientLevel: ClientLevel?, livingEntity: LivingEntity?, i: Int ->
         if (itemStack.item is URLDiscItem) {
-          val itemTexture = itemStack.orCreateTag.getInt(URLDiscItem.TEXTURE_TAG_KEY)
+          val itemTexture = itemStack.orCreateTag.getInt(URLDiscItem.TEXTURE_TAG_KEY) + 1
           val variant = String.format("%.2f", (itemTexture.toDouble() / 100)).toFloat()
           return@register variant
         }

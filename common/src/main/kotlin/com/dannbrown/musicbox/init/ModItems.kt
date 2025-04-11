@@ -61,11 +61,12 @@ object ModItems {
           return jsonObject
         }
 
-        RegistrateModelTemplates.FLAT_ITEM.create(
-          BuiltInRegistries.ITEM.getKey(p.get()).withPrefix("item/"),
-          TextureMapping().put(TextureSlot.LAYER0, c.optionalTexture(p.get(), "", "", "item/")),
-          c.asOutput(), ::generateDiscVariants
-        )
+// This generate the main disc with variants predicate, its not needed to run everytime
+//        RegistrateModelTemplates.FLAT_ITEM.create(
+//          BuiltInRegistries.ITEM.getKey(p.get()).withPrefix("item/"),
+//          TextureMapping().put(TextureSlot.LAYER0, c.optionalTexture(p.get(), "", "", "item/")),
+//          c.asOutput(), ::generateDiscVariants
+//        )
 
         for (i in 0 until DiscVariant.maxVariants() + 1) {
           RegistrateModelTemplates.FLAT_ITEM.create(

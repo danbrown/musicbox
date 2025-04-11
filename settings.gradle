@@ -13,4 +13,4 @@ include("forge")
 
 rootProject.name = "musicbox"
 
-includeBuild("../deltaboxlib_multi")
+includeBuild("../deltaboxlib")
