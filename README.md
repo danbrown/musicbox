@@ -6,12 +6,15 @@
 # About the Mod
 **Music Box** is a Minecraft mod that adds a custom music disc item, allowing you to play any YouTube music in the JukeBox! It is *server compatible*, so you can play music with your friends, add ambient music, create a radio station, and much more!
 
-It is a fork of the Fabric mod [URL Music Discs](https://modrinth.com/mod/url-music-discs), ported to Forge with some improvements and new features.
+It is a fork of the Fabric mod [URL Music Discs](https://modrinth.com/mod/url-music-discs) and [VinURL](https://modrinth.com/mod/vinurl), ported to Forge with some improvements and new features.
 <br/>
 
 ## Dependencies
 - [DeltaBox Lib](https://modrinth.com/mod/deltaboxlib)
-- [Kotlin For Forge](https://modrinth.com/mod/kotlin-for-forge)
+- [Architectury](https://modrinth.com/mod/architectury-api)
+- If you are using Forge, [Kotlin For Forge](https://modrinth.com/mod/kotlin-for-forge)
+- If you are using Fabric, [Fabric Language Kotlin](https://modrinth.com/mod/fabric-language-kotlin)
+
 
 ## Recipe
 
@@ -69,12 +72,12 @@ The mod is still in development, as of now it only works with YouTube links, but
 
 New disc variants textures are always welcome if you have new ideas!
 
-**What about a Fabric version?** I'm not planning to make a Fabric version of this mod, but you can use the original mod [URL Music Discs](https://modrinth.com/mod/url-music-discs) that is available for Fabric.
-
 
 # Credits
 [DannBrown](https://x.com/deltaboxlabs) - Forge Port and Improvements
 <br/>
 [Hoofer](https://modrinth.com/user/Hoofer) - URL Music Discs Creator
+<br/>
+[Plompii](https://modrinth.com/user/Plompii) - VinURL Creator
 <br/>
 [Tejty](https://www.curseforge.com/members/tejty/projects) - Some disc textures
